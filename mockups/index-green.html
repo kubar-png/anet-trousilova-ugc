@@ -785,15 +785,15 @@
 <nav class="nav" aria-label="Primary">
   <div class="logo">Anet<b>· Trousilová</b></div>
   <div class="menu">
-    <a href="#about">About</a>
-    <a href="#clients">Clients</a>
-    <a href="#feedback">Feedback</a>
-    <a href="#starter">Starter Pack</a>
-    <a href="#contact">Contact</a>
+    <a href="#about"><span data-i18n="nav.about">About</span></a>
+    <a href="#clients"><span data-i18n="nav.clients">Clients</span></a>
+    <a href="#feedback"><span data-i18n="nav.feedback">Feedback</span></a>
+    <a href="#starter"><span data-i18n="nav.starter">Starter Pack</span></a>
+    <a href="#contact"><span data-i18n="nav.contact">Contact</span></a>
   </div>
   <div class="right">
     <span class="lang"><button class="on">EN</button><button>CZ</button></span>
-    <a class="book" href="mailto:anetatrousilovaugc@gmail.com">Book</a>
+    <a class="book" href="mailto:anetatrousilovaugc@gmail.com"><span data-i18n="nav.book">Book</span></a>
   </div>
 </nav>
 
@@ -803,23 +803,18 @@
   <div class="glow b"></div>
 
   <div class="hero-top">
-    <div class="pulse">UGC Creator</div>
+    <div class="pulse"><span data-i18n="hero.pulse">UGC Creator</span></div>
     <div><a href="https://www.instagram.com/trousilova_aneta/">@trousilova_aneta</a></div>
   </div>
 
   <div class="hero-main">
     <div>
-      <div class="eyebrow hero-eye">Hi, my name is Anet</div>
-      <h1 class="hero-title">UGC that<br/><span class="name">delivers.</span></h1>
-      <p class="hero-tagline">
-        Content that feels like <em>a recommendation from a friend</em> —
-        and still delivers the best of what your product has to offer.
-      </p>
+      <div class="eyebrow hero-eye" data-i18n="hero.eyebrow">Hi, my name is Anet</div>
+      <h1 class="hero-title" data-i18n="hero.title">UGC that<br/><span class="name">delivers.</span></h1>
+      <p class="hero-tagline" data-i18n="hero.tagline">Content that feels like <em>a recommendation from a friend</em> — and still delivers the best of what your product has to offer.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="mailto:anetatrousilovaugc@gmail.com">
-          Book a brief <span class="arr">→</span>
-        </a>
-        <a class="btn btn-ghost" href="#clients">See my work</a>
+        <a class="btn btn-primary" href="mailto:anetatrousilovaugc@gmail.com" data-i18n="hero.cta-primary">Send me a brief <span class="arr">→</span></a>
+        <a class="btn btn-ghost" href="#clients"><span data-i18n="hero.cta-secondary">See my work</span></a>
       </div>
     </div>
 
@@ -877,13 +872,13 @@
     </div>
 
     <div class="about-text" data-reveal style="--rd:.08s">
-      <div class="eyebrow" style="margin-bottom:24px">Few words about me</div>
-      <h2 class="section-h">Anet has a <em>small</em> <span class="copper">problem.</span></h2>
+      <div class="eyebrow" data-i18n="about.eyebrow" style="margin-bottom:24px">Few words about me</div>
+      <h2 class="section-h" data-i18n="about.h2">Anet has a <em>small</em> <span class="copper">problem.</span></h2>
 
       <div class="about-prose">
-        <p>My name is Anet and I have one problem: I can't walk past a product without immediately wanting to film it. I make <b>UGC content</b> that feels like a recommendation from a friend — but still delivers the best of what your product has to offer.</p>
-        <p><em>Lifestyle, food, travel, sport, beauty, home decor, mall stores, apps, online products, events…</em> basically anything that can be shown to the world.</p>
-        <p>The list of brands I've worked with is long enough to <b>guarantee my quality</b> and your satisfaction.</p>
+        <p data-i18n="about.bio-1">My name is Anet and I have one problem: I can\'t walk past a product without immediately wanting to film it. I make <b>UGC content</b> that feels like a recommendation from a friend — but still delivers the best of what your product has to offer.</p>
+        <p data-i18n="about.bio-2"><em>Lifestyle, food, travel, sport, beauty, home decor, mall stores, apps, online products, events…</em> basically anything that can be shown to the world.</p>
+        <p data-i18n="about.bio-3">The list of brands I\'ve worked with is long enough to <b>guarantee my quality</b> and your satisfaction.</p>
       </div>
 
     </div>
@@ -894,15 +889,15 @@
 <section class="clients" id="clients">
   <div class="clients-head" data-reveal>
     <div>
-      <div class="num">Clients · <b>My Work</b> · 001 — 035+</div>
-      <h2 class="section-h" style="margin-top:18px">Selected <em>reels.</em></h2>
+      <div class="num" data-i18n="clients.num">Clients · <b>My Work</b> · 001 — 035+</div>
+      <h2 class="section-h" style="margin-top:18px" data-i18n="clients.h2">Selected <em>reels.</em></h2>
     </div>
-    <p class="lead">Every reel below is a real, completed collaboration. Filter by category, tap to play.</p>
+    <p class="lead" data-i18n="clients.lead">Every reel below is a real, completed collaboration. Filter by category, tap to play.</p>
   </div>
 
   <div class="filter" data-reveal style="--rd:.06s" role="tablist" aria-label="Filter reels by category">
     <button class="chip is-active" role="tab" aria-selected="true" data-filter="all">
-      <span class="chip-l">All</span><span class="chip-c" data-count-all>35</span>
+      <span class="chip-l" data-i18n="filter.all">All</span><span class="chip-c" data-count-all>35</span>
     </button>
     <button class="chip" role="tab" aria-selected="false" data-filter="beauty">
       <span class="chip-l">Beauty</span><span class="chip-c" data-count-beauty>7</span>
@@ -919,7 +914,7 @@
     <button class="chip" role="tab" aria-selected="false" data-filter="apps">
       <span class="chip-l">Apps</span><span class="chip-c" data-count-apps>6</span>
     </button>
-    <span class="filter-meta" aria-live="polite"><b data-shown>35</b> reels shown</span>
+    <span class="filter-meta" aria-live="polite"><b data-shown>35</b> <span data-i18n="filter.shown-suffix">reels shown</span></span>
   </div>
 
   <div class="reels" id="reels" data-reveal style="--rd:.12s">
@@ -1125,10 +1120,10 @@
 <section class="feedback" id="feedback">
   <div class="feedback-head" data-reveal>
     <div>
-      <div class="eyebrow" style="color:var(--rust)">Feedback</div>
-      <h2 class="section-h" style="margin-top:18px">In their <em>own</em> words.</h2>
+      <div class="eyebrow" style="color:var(--rust)" data-i18n="feedback.eyebrow">Feedback</div>
+      <h2 class="section-h" style="margin-top:18px" data-i18n="feedback.h2">In their <em>own</em> words.</h2>
     </div>
-    <div class="num">— Selected screenshots —</div>
+    <div class="num" data-i18n="feedback.num">— Selected screenshots —</div>
   </div>
 
   <div class="feedback-marquee" data-reveal style="--rd:.1s" aria-roledescription="testimonial screenshots scrolling">
@@ -1351,7 +1346,7 @@
     </div>
   </div>
 
-  <p class="feedback-attribution">All screenshots <b>· placeholders ·</b> ready to swap for real DMs &amp; emails</p>
+  <p class="feedback-attribution" data-i18n="feedback.attr">All screenshots <b>· placeholders ·</b> ready to swap for real DMs &amp; emails</p>
 </section>
 
 <!-- ======================== 6. FINAL CTA / CONTACT ======================== -->
@@ -1359,13 +1354,11 @@
   <div class="cta-spotlight" aria-hidden="true"></div>
 
   <div class="cta-inner">
-    <div class="cta-eyebrow" data-reveal><span class="rule" aria-hidden="true"></span>Get in touch<span class="rule" aria-hidden="true"></span></div>
+    <div class="cta-eyebrow" data-reveal><span class="rule" aria-hidden="true"></span><span data-i18n="cta.eyebrow">Get in touch</span><span class="rule" aria-hidden="true"></span></div>
 
-    <h2 data-reveal style="--rd:.08s">I look forward to our <em>future collaboration!</em></h2>
+    <h2 data-reveal style="--rd:.08s" data-i18n="cta.h2">I look forward to our <em>future collaboration!</em></h2>
 
-    <a class="btn btn-primary cta-btn" data-reveal style="--rd:.16s" href="mailto:anetatrousilovaugc@gmail.com">
-      Send a brief <span class="arr">→</span>
-    </a>
+    <a class="btn btn-primary cta-btn" data-reveal style="--rd:.16s" href="mailto:anetatrousilovaugc@gmail.com"><span data-i18n="cta.btn">Send me a brief <span class="arr">→</span></span></a>
 
     <a class="cta-email" data-reveal style="--rd:.24s" href="mailto:anetatrousilovaugc@gmail.com">anetatrousilovaugc@gmail.com</a>
 
@@ -1382,8 +1375,8 @@
 <!-- ======================== 7. SOCIAL ======================== -->
 <section class="social">
   <div class="social-head" data-reveal>
-    <div class="eyebrow">More examples</div>
-    <h2 class="section-h">Check out my <em>social media</em> for more examples.</h2>
+    <div class="eyebrow" data-i18n="social.eyebrow">More examples</div>
+    <h2 class="section-h" data-i18n="social.h2">Check out my <em>social media</em> for more examples.</h2>
   </div>
 
   <div class="social-cards">
@@ -1393,7 +1386,7 @@
       </div>
       <div class="label">TikTok</div>
       <div class="handle">@ugcaneta.trou</div>
-      <div class="open">Open profile</div>
+      <div class="open" data-i18n="social.open-profile">Open profile</div>
     </a>
 
     <a class="social-card" href="https://www.instagram.com/trousilova_aneta/" data-reveal style="--rd:.13s">
@@ -1402,7 +1395,7 @@
       </div>
       <div class="label">Instagram</div>
       <div class="handle">@trousilova_aneta</div>
-      <div class="open">Open profile</div>
+      <div class="open" data-i18n="social.open-profile">Open profile</div>
     </a>
 
     <a class="social-card yt" data-reveal style="--rd:.21s" href="https://youtube.com/@anetatrousilova22">
@@ -1411,7 +1404,7 @@
       </div>
       <div class="label">YouTube</div>
       <div class="handle">@anetatrousilova22</div>
-      <div class="open">Open channel</div>
+      <div class="open" data-i18n="social.open-channel">Open channel</div>
     </a>
   </div>
 </section>
@@ -1419,18 +1412,16 @@
 <!-- ======================== 8. UGC STARTERPACK ======================== -->
 <section class="starter" id="starter">
   <div data-reveal>
-    <div class="starter-mark">Building UGC community &amp; workshops</div>
-    <h2 class="section-h">ugc <em>starterpack.</em></h2>
-    <p>Follow on Instagram for community and workshops.</p>
-    <a class="btn btn-primary" href="https://www.instagram.com/ugc.starterpack/">
-      Follow on Instagram <span class="arr">→</span>
-    </a>
+    <div class="starter-mark" data-i18n="starter.mark">Building UGC community &amp; workshops</div>
+    <h2 class="section-h" data-i18n="starter.h2">ugc <em>starterpack.</em></h2>
+    <p data-i18n="starter.p">Follow on Instagram for community and workshops.</p>
+    <a class="btn btn-primary" href="https://www.instagram.com/ugc.starterpack/"><span data-i18n="starter.btn">Follow on Instagram <span class="arr">→</span></span></a>
   </div>
 
   <a class="starter-card" data-reveal style="--rd:.12s" href="https://www.instagram.com/ugc.starterpack/">
     <div class="badge">@ugc.starterpack</div>
     <div class="name">starter<br/>pack.<b>Community · workshops</b></div>
-    <div class="open"><span>Open Instagram</span></div>
+    <div class="open"><span data-i18n="starter.open">Open Instagram</span></div>
   </a>
 </section>
 
@@ -1442,22 +1433,22 @@
       <p class="ft-blurb">UGC content that feels like a recommendation from a friend — but still delivers the best of what your product has to offer.</p>
     </div>
     <div>
-      <h4>Site</h4>
+      <h4><span data-i18n="footer.site">Site</span></h4>
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#clients">Clients</a></li>
-        <li><a href="#feedback">Feedback</a></li>
-        <li><a href="#starter">Starter Pack</a></li>
+        <li><a href="#about"><span data-i18n="nav.about">About</span></a></li>
+        <li><a href="#clients"><span data-i18n="nav.clients">Clients</span></a></li>
+        <li><a href="#feedback"><span data-i18n="nav.feedback">Feedback</span></a></li>
+        <li><a href="#starter"><span data-i18n="nav.starter">Starter Pack</span></a></li>
       </ul>
     </div>
     <div>
-      <h4>Contact</h4>
+      <h4><span data-i18n="footer.contact">Contact</span></h4>
       <ul>
         <li><a href="mailto:anetatrousilovaugc@gmail.com">anetatrousilovaugc@gmail.com</a></li>
       </ul>
     </div>
     <div>
-      <h4>Social</h4>
+      <h4><span data-i18n="footer.social">Social</span></h4>
       <ul>
         <li><a href="https://www.instagram.com/trousilova_aneta/">Instagram · personal</a></li>
         <li><a href="https://www.instagram.com/ugc.starterpack/">Instagram · starter pack</a></li>
@@ -1468,7 +1459,7 @@
   </div>
 
   <div class="ftbottom">
-    <span>© 2026 Anet Trousilová · All rights reserved</span>
+    <span data-i18n="footer.copyright">© 2026 Anet Trousilová · All rights reserved</span>
     <span><a href="mailto:anetatrousilovaugc@gmail.com">anetatrousilovaugc@gmail.com</a></span>
   </div>
 </footer>
@@ -1519,9 +1510,8 @@
       } else {
         moreBtn.hidden = false;
         moreBtn.classList.toggle('is-expanded', expanded);
-        moreLabel.textContent = expanded
-          ? 'Show fewer'
-          : 'Show more';
+        var __l = (window.__i18n && window.__i18n.lang) || 'en';
+        moreLabel.textContent = __l === 'cs' ? (expanded ? 'Zobrazit méně' : 'Zobrazit více') : (expanded ? 'Show fewer' : 'Show more');
       }
     }
 
@@ -1594,6 +1584,119 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
     reveals.forEach(el => obs.observe(el));
   })();
+
+  /* === i18n: CZ / EN toggle ============================================ */
+  (function(){
+    const CS = {
+      'nav.about': 'O mně',
+      'nav.clients': 'Klienti',
+      'nav.feedback': 'Ohlasy',
+      'nav.starter': 'Starter Pack',
+      'nav.contact': 'Kontakt',
+      'nav.book': 'Napsat',
+      'hero.eyebrow': 'Ahoj, jsem Anet',
+      'hero.title': 'UGC, které <span class="name">funguje.</span>',
+      'hero.tagline': 'Obsah, který působí jako <em>doporučení od kamarádky</em> — a přitom z tvého produktu vytáhne to nejlepší.',
+      'hero.cta-primary': 'Pošli mi brief <span class="arr">→</span>',
+      'hero.cta-secondary': 'Vidět práci',
+      'hero.pulse': 'UGC tvůrkyně',
+      'about.eyebrow': 'Pár slov o mně',
+      'about.h2': 'Anet má <em>malý</em> <span class="copper">problém.</span>',
+      'about.bio-1': 'Jmenuju se Anet a mám jeden problém: nemůžu projít kolem produktu, abych ho hned nechtěla natočit. Tvořím <b>UGC obsah</b>, který působí jako doporučení od kamarádky — a přitom z tvého produktu vytáhne to nejlepší.',
+      'about.bio-2': '<em>Lifestyle, jídlo, cestování, sport, beauty, design domácnosti, obchodní centra, aplikace, online produkty, akce…</em> v podstatě cokoli, co se dá ukázat světu.',
+      'about.bio-3': 'Seznam brandů, se kterými jsem spolupracovala, je dost dlouhý na to, aby <b>zaručil mojí kvalitu</b> a tvoji spokojenost.',
+      'clients.num': 'Klienti · <b>Moje práce</b> · 001 — 035+',
+      'clients.h2': 'Vybrané <em>reels.</em>',
+      'clients.lead': 'Každý reel níže je reálná, dokončená spolupráce. Filtruj podle kategorie, klikni pro přehrání.',
+      'filter.all': 'Vše',
+      'filter.shown-suffix': 'reels zobrazeno',
+      'feedback.eyebrow': 'Ohlasy',
+      'feedback.h2': 'Jejich <em>vlastními</em> slovy.',
+      'feedback.num': '— Vybrané screenshoty —',
+      'feedback.attr': 'Všechny screenshoty <b>· placeholdery ·</b> připravené nahradit reálnými DMs a emaily',
+      'cta.eyebrow': 'Pojďme se domluvit',
+      'cta.h2': 'Těším se na naši <em>budoucí spolupráci!</em>',
+      'cta.btn': 'Pošli mi brief <span class="arr">→</span>',
+      'social.eyebrow': 'Více příkladů',
+      'social.h2': 'Podívej se na moje <em>sociální sítě</em>.',
+      'social.open-profile': 'Otevřít profil',
+      'social.open-channel': 'Otevřít kanál',
+      'starter.mark': 'Buduju UGC komunitu a workshopy',
+      'starter.h2': 'ugc <em>starterpack.</em>',
+      'starter.p': 'Sleduj na Instagramu komunitu a workshopy.',
+      'starter.btn': 'Sledovat na Instagramu <span class="arr">→</span>',
+      'starter.open': 'Otevřít Instagram',
+      'footer.site': 'Stránky',
+      'footer.contact': 'Kontakt',
+      'footer.social': 'Sociální sítě',
+      'footer.copyright': '© 2026 Anet Trousilová · Všechna práva vyhrazena',
+      'show.more': 'Zobrazit více',
+      'show.fewer': 'Zobrazit méně',
+    };
+
+    let activeLang = 'en';
+
+    function applyLang(lang){
+      activeLang = lang === 'cs' ? 'cs' : 'en';
+      document.documentElement.lang = activeLang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (activeLang === 'cs' && CS[key] !== undefined){
+          if (!el.dataset.en) el.dataset.en = el.innerHTML;
+          el.innerHTML = CS[key];
+        } else if (el.dataset.en){
+          el.innerHTML = el.dataset.en;
+        }
+      });
+      document.querySelectorAll('.lang button').forEach(b => {
+        const t = b.textContent.trim().toLowerCase();
+        b.classList.toggle('on', (activeLang === 'cs' && t === 'cz') || (activeLang === 'en' && t === 'en'));
+      });
+      // Update dynamic show-more label if button is rendered
+      const moreLabel = document.querySelector('[data-show-more-label]');
+      if (moreLabel){
+        const moreBtn = document.querySelector('[data-show-more]');
+        const isExpanded = moreBtn && moreBtn.classList.contains('is-expanded');
+        moreLabel.textContent = activeLang === 'cs'
+          ? (isExpanded ? CS['show.fewer'] : CS['show.more'])
+          : (isExpanded ? 'Show fewer' : 'Show more');
+      }
+      try { localStorage.setItem('lang', activeLang); } catch(e){}
+      window.dispatchEvent(new CustomEvent('langchange', { detail: activeLang }));
+    }
+
+    document.querySelectorAll('.lang button').forEach(b => {
+      b.addEventListener('click', () => {
+        const t = b.textContent.trim().toLowerCase();
+        applyLang(t === 'cz' ? 'cs' : 'en');
+      });
+    });
+
+    let saved = null;
+    try { saved = localStorage.getItem('lang'); } catch(e){}
+    if (saved === 'cs') applyLang('cs');
+    else if (!saved && navigator.language && navigator.language.toLowerCase().startsWith('cs')) applyLang('cs');
+
+    // Expose so applyState() can read current lang for show-more dynamic label
+    window.__i18n = { get lang(){ return activeLang; }, t(key){ return activeLang==='cs' ? (CS[key]||'') : ''; } };
+  })();
+
+</script>
+
+
+<!-- Lenis: smooth scroll for the entire site -->
+<script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const lenis = new Lenis({
+      duration: 1.15,
+      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      lerp: 0.1,
+      anchors: { offset: -64, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) }
+    });
+    (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(0);
+  }
 </script>
 
 </body>
