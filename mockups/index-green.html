@@ -1,0 +1,1600 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Anet Trousilová — UGC Creator · Praha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap&subset=latin,latin-ext" rel="stylesheet" />
+<style>
+  /* ======================================================================
+     Tokens
+     ====================================================================== */
+  :root{
+    /* ────────── Surfaces (warm cream scale) ────────── */
+    --surface-0:#faf6ec;          /* lightest paper — cards */
+    --surface-1:#f4f1e8;          /* default cream — body bg (her hex) */
+    --surface-2:#ebe5d3;          /* deeper cream — section variation */
+    --surface-3:#ddd4ba;          /* deepest cream — dividers */
+
+    /* ────────── Surfaces (dark, warm) ────────── */
+    --surface-dark-1:#2a261f;     /* warm charcoal */
+    --surface-dark-2:#1a3326;     /* deep moss — feature dark sections */
+    --surface-dark-3:#14110c;     /* deepest — footer */
+
+    /* ────────── Text scale (warm neutrals) ────────── */
+    --text-1:#1a1814;             /* primary */
+    --text-2:#4a463d;             /* secondary */
+    --text-3:#847d6c;             /* muted */
+    --text-4:#b5ad9a;             /* faintest */
+    --text-on-dark:#f4f1e8;
+
+    /* ────────── Accent — terra (warm, brick spectrum) ────────── */
+    --terra-1:#e8c89a;            /* sand — gradient highlight */
+    --terra-2:#c79a5e;            /* refined wheat — soft warm */
+    --terra-3:#9b4819;            /* her brick — primary CTA + emphasis */
+    --terra-4:#6e2f0e;            /* deepest — hover/pressed */
+
+    /* ────────── Accent — moss (cool, forest spectrum) ────────── */
+    --moss-1:#aebcae;             /* sage — light cool */
+    --moss-2:#6a7c6e;             /* mid sage — soft cool */
+    --moss-3:#284b3a;             /* her forest — secondary emphasis */
+    --moss-4:#1a3326;             /* deepest moss — bg */
+
+    /* ────────── Hairlines ────────── */
+    --hair-soft:rgba(26,24,20,0.08);
+    --hair:rgba(26,24,20,0.16);
+    --hair-strong:rgba(26,24,20,0.30);
+
+    /* ────────── Legacy aliases (so existing CSS keeps working) ────────── */
+    --cream:var(--surface-1);
+    --cream-2:var(--surface-2);
+    --paper:var(--surface-0);
+    --ink:var(--text-1);
+    --ink-soft:var(--text-2);
+    --mute:var(--text-3);
+    --copper:var(--moss-3);       /* "decorative cool" role → forest */
+    --rust:var(--terra-3);        /* "warm emphasis" role → brick */
+    --green-deep:var(--moss-4);
+
+    /* ────────── Type ────────── */
+    --serif:'Fraunces',ui-serif,Georgia,serif;
+    --sans:'Inter Tight',system-ui,-apple-system,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+
+    /* ────────── Layout ────────── */
+    --pad-x:clamp(24px,5vw,80px);
+    --sec-y:clamp(56px,7vw,88px);
+  }
+
+  /* ====================================================================== */
+  /* Motion: scroll-triggered reveal-up for any [data-reveal] element        */
+  /* ====================================================================== */
+  [data-reveal]{
+    opacity:0;
+    transform:translateY(22px);
+    transition:
+      opacity .8s cubic-bezier(0.22,1,0.36,1) var(--rd,0s),
+      transform .8s cubic-bezier(0.22,1,0.36,1) var(--rd,0s);
+    will-change:opacity,transform;
+  }
+  [data-reveal].is-visible{opacity:1;transform:translateY(0)}
+  @media (prefers-reduced-motion: reduce){
+    [data-reveal]{opacity:1;transform:none;transition:none;will-change:auto}
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:64px}
+  html,body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{font-size:16px;line-height:1.55;font-weight:400}
+  a{color:inherit;text-decoration:none}
+  img,svg{max-width:100%;display:block}
+  ::selection{background:var(--rust);color:var(--cream)}
+
+  /* ======================================================================
+     Primitives
+     ====================================================================== */
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11px;letter-spacing:0.28em;text-transform:uppercase;
+    color:var(--rust);font-weight:500;
+    display:inline-flex;align-items:center;gap:14px;
+  }
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--rust);display:block}
+
+  h2.section-h{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(32px,4.2vw,56px);line-height:1;letter-spacing:-0.022em;
+    margin:0;font-variation-settings:"opsz" 72;
+  }
+  h2.section-h em{font-style:italic;color:var(--rust);font-weight:500}
+  h2.section-h .copper{color:var(--copper);font-style:italic;font-weight:400}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:12px;
+    padding:13px 22px;border-radius:999px;
+    font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:0.02em;
+    transition:transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+    cursor:pointer;
+  }
+  .btn-primary{background:var(--ink);color:var(--cream);border:1px solid var(--ink)}
+  .btn-primary:hover{background:var(--terra-4);border-color:var(--terra-4);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--hair-strong)}
+  .btn-ghost:hover{border-color:var(--rust);color:var(--rust)}
+  .btn .arr{font-family:var(--serif);font-style:italic;font-size:18px;line-height:1;font-weight:400}
+
+  .hairline{height:1px;background:var(--hair);width:100%}
+
+  /* ======================================================================
+     Top navigation
+     ====================================================================== */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+    padding:12px var(--pad-x);
+    background:rgba(244,241,232,0.82);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--hair);
+  }
+  .nav .logo{
+    font-family:var(--serif);font-style:italic;font-weight:400;font-size:22px;letter-spacing:-0.012em;
+    display:inline-flex;align-items:baseline;gap:6px;
+  }
+  .nav .logo b{font-style:normal;font-weight:500;font-family:var(--sans);font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--rust)}
+  .nav .menu{display:flex;gap:32px;justify-self:center;font-size:13px;letter-spacing:0.04em;font-weight:500}
+  .nav .menu a{padding:6px 0;border-bottom:1px solid transparent;transition:border-color .2s, color .2s}
+  .nav .menu a:hover{color:var(--rust);border-bottom-color:var(--rust)}
+  .nav .right{justify-self:end;display:flex;align-items:center;gap:18px}
+  .nav .lang{font-family:var(--mono);font-size:11px;letter-spacing:0.2em;display:inline-flex;border:1px solid var(--hair-strong);border-radius:99px;overflow:hidden}
+  .nav .lang button{all:unset;cursor:pointer;padding:5px 11px;font-family:inherit;font-size:11px;letter-spacing:0.2em}
+  .nav .lang .on{background:var(--ink);color:var(--cream)}
+  .nav .book{
+    padding:10px 18px;background:var(--ink);color:var(--cream);
+    border-radius:99px;font-size:12px;font-weight:500;letter-spacing:0.04em;
+  }
+  .nav .book:hover{background:var(--rust)}
+
+  /* ======================================================================
+     SECTION 1 — HERO
+     ====================================================================== */
+  .hero{
+    padding:104px var(--pad-x) 56px;
+    display:grid;grid-template-rows:auto auto auto;gap:32px;
+    position:relative;overflow:hidden;
+  }
+  .hero .glow{
+    position:absolute;top:-20%;right:-10%;width:60%;height:80%;
+    background:radial-gradient(closest-side, rgba(189,143,83,0.22), transparent 70%);
+    pointer-events:none;z-index:0;
+  }
+  .hero .glow.b{
+    top:auto;bottom:-30%;left:-15%;right:auto;width:50%;height:60%;
+    background:radial-gradient(closest-side, rgba(155,72,25,0.10), transparent 70%);
+  }
+  .hero-top{
+    display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mute);
+    position:relative;z-index:1;
+  }
+  .hero-top .pulse{display:inline-flex;align-items:center;gap:10px;color:var(--ink)}
+  .hero-top .pulse::before{
+    content:"";width:8px;height:8px;border-radius:50%;
+    background:#69a866;box-shadow:0 0 12px #69a866;
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse{50%{opacity:0.45;transform:scale(0.85)}}
+  .hero-top .pulse b{color:var(--rust);font-weight:500}
+
+  .hero-main{
+    display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:56px;
+    align-items:center;
+    position:relative;z-index:1;
+  }
+  .hero-eye{margin-bottom:18px}
+
+  h1.hero-title{
+    font-family:var(--serif);font-weight:500;
+    font-size:clamp(48px,7.2vw,104px);
+    line-height:0.96;letter-spacing:-0.03em;
+    margin:0 0 18px;
+    font-variation-settings:"opsz" 96;
+    color:var(--ink);
+  }
+  h1.hero-title em{font-style:italic;color:var(--rust);font-weight:600}
+  h1.hero-title .name{
+    font-style:italic;color:var(--copper);font-weight:600;
+    display:inline-block;
+    background:linear-gradient(180deg,var(--copper),var(--rust));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .hero-tagline{
+    font-family:var(--sans);font-weight:400;
+    font-size:clamp(15px,1.15vw,18px);line-height:1.55;color:var(--ink-soft);
+    max-width:50ch;margin:0 0 22px;
+  }
+  .hero-tagline em{font-style:normal;color:var(--rust);font-weight:500}
+
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:0}
+
+  /* hero auto-scrolling reel columns */
+  .hero-reels{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;
+    height:560px;overflow:hidden;
+    -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 10%,#000 90%,transparent 100%);
+            mask-image:linear-gradient(180deg,transparent 0,#000 10%,#000 90%,transparent 100%);
+  }
+  .hero-col{display:flex;flex-direction:column;gap:14px;will-change:transform}
+  /* IG‑style snap scroll: 3s dwell + ~0.4s fast sticky transition per reel */
+  .hero-col-up{animation:hsnapUp 20.4s infinite}
+  .hero-col-down{animation:hsnapDown 20.4s infinite;animation-delay:-1.7s}
+  .hero-reels:hover .hero-col{animation-play-state:paused}
+  /* 6 unique reels per column → 6 stops, looping back via the cloned set */
+  @keyframes hsnapUp{
+    0%{transform:translate3d(0,0,0);animation-timing-function:linear}
+    14.71%{transform:translate3d(0,0,0);animation-timing-function:cubic-bezier(.7,0,.18,1)}
+    16.67%{transform:translate3d(0,-8.333%,0);animation-timing-function:linear}
+    31.37%{transform:translate3d(0,-8.333%,0);animation-timing-function:cubic-bezier(.7,0,.18,1)}
+    33.33%{transform:translate3d(0,-16.666%,0);animation-timing-function:linear}
+    48.04%{transform:translate3d(0,-16.666%,0);animation-timing-function:cubic-bezier(.7,0,.18,1)}
+    50.00%{transform:translate3d(0,-25%,0);animation-timing-function:linear}
+    64.71%{transform:translate3d(0,-25%,0);animation-timing-function:cubic-bezier(.7,0,.18,1)}
+    66.67%{transform:translate3d(0,-33.333%,0);animation-timing-function:linear}
+    81.37%{transform:translate3d(0,-33.333%,0);animation-timing-function:cubic-bezier(.7,0,.18,1)}
+    83.33%{transform:translate3d(0,-41.666%,0);animation-timing-function:linear}
+    98.04%{transform:translate3d(0,-41.666%,0);animation-timing-function:cubic-bezier(.7,0,.18,1)}
+    100%{transform:translate3d(0,-50%,0)}
+  }
+  @keyframes hsnapDown{
+    0%{transform:translate3d(0,-50%,0);animation-timing-function:linear}
+    14.71%{transform:translate3d(0,-50%,0);animation-timing-function:cubic-bezier(.7,0,.18,1)}
+    16.67%{transform:translate3d(0,-41.666%,0);animation-timing-function:linear}
+    31.37%{transform:translate3d(0,-41.666%,0);animation-timing-function:cubic-bezier(.7,0,.18,1)}
+    33.33%{transform:translate3d(0,-33.333%,0);animation-timing-function:linear}
+    48.04%{transform:translate3d(0,-33.333%,0);animation-timing-function:cubic-bezier(.7,0,.18,1)}
+    50.00%{transform:translate3d(0,-25%,0);animation-timing-function:linear}
+    64.71%{transform:translate3d(0,-25%,0);animation-timing-function:cubic-bezier(.7,0,.18,1)}
+    66.67%{transform:translate3d(0,-16.666%,0);animation-timing-function:linear}
+    81.37%{transform:translate3d(0,-16.666%,0);animation-timing-function:cubic-bezier(.7,0,.18,1)}
+    83.33%{transform:translate3d(0,-8.333%,0);animation-timing-function:linear}
+    98.04%{transform:translate3d(0,-8.333%,0);animation-timing-function:cubic-bezier(.7,0,.18,1)}
+    100%{transform:translate3d(0,0,0)}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero-col{animation:none}
+    .hero-reels{height:auto;mask:none;-webkit-mask:none}
+  }
+  .hreel{
+    position:relative;flex-shrink:0;
+    aspect-ratio:9/16;border-radius:10px;overflow:hidden;
+    background:radial-gradient(at 28% 22%, var(--g1,#efd9b4), var(--g2,#9b4819) 50%, var(--g3,#1a3326) 110%);
+    box-shadow:0 14px 30px -16px rgba(155,72,25,0.5);
+  }
+  .hreel::after{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(244,241,232,0.92) 0 19px, transparent 20px),
+      linear-gradient(180deg,rgba(25,25,25,0) 55%,rgba(25,24,20,0.72));
+    pointer-events:none;
+    z-index:1;
+  }
+  .hreel::before{
+    /* play triangle */
+    content:"";position:absolute;top:50%;left:50%;transform:translate(-44%,-50%);
+    width:0;height:0;border-left:9px solid var(--text-1);
+    border-top:6px solid transparent;border-bottom:6px solid transparent;
+    z-index:2;
+  }
+  .hreel .hreel-tag{
+    position:absolute;left:10px;right:10px;bottom:22px;z-index:3;
+    color:var(--cream);font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:14px;line-height:1.1;letter-spacing:-0.005em;
+  }
+  .hreel .hreel-cat{
+    position:absolute;left:10px;bottom:8px;z-index:3;
+    color:#d8c4a3;font-family:var(--mono);font-size:8px;letter-spacing:0.22em;text-transform:uppercase;font-weight:500;
+  }
+
+  /* hero bottom strip — socials trio + meta */
+  .hero-bottom{
+    display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;
+    border-top:1px solid var(--hair-strong);
+    margin-top:8px;
+    position:relative;z-index:1;
+  }
+  .hero-bottom > *{padding:16px 22px;border-right:1px solid var(--hair)}
+  .hero-bottom > *:last-child{border-right:0}
+  .hb-k{font-family:var(--mono);font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+  .hb-v{font-family:var(--serif);font-size:18px;font-style:italic;font-weight:400;letter-spacing:-0.005em;color:var(--ink)}
+  .hb-v b{font-style:normal;font-weight:500;font-family:var(--sans);font-size:15px;letter-spacing:-0.005em}
+  .hb-v a{display:inline-flex;align-items:center;gap:6px;color:var(--ink)}
+  .hb-v a:hover{color:var(--rust)}
+  .hb-v .h{color:var(--copper);font-style:italic}
+
+  /* ======================================================================
+     SECTION 2 — few words about me
+     ====================================================================== */
+  .about{
+    padding:var(--sec-y) var(--pad-x);
+    background:var(--cream-2);
+    border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);
+    position:relative;
+  }
+  .about-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:48px;max-width:1240px;margin:0 auto;align-items:start}
+  .about-portrait{
+    aspect-ratio:4/5;border-radius:6px;
+    background:radial-gradient(at 28% 22%, #f0d8b0, #9b4819 50%, #1a3326 105%);
+    box-shadow:0 50px 80px -45px rgba(155,72,25,0.4);
+    position:relative;overflow:hidden;
+  }
+  .about-portrait::after{
+    content:"";position:absolute;inset:0;
+    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.4  0 0 0 0 0.25  0 0 0 0.2 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    mix-blend-mode:overlay;opacity:0.55;
+  }
+  .about-portrait .cap{
+    position:absolute;left:18px;bottom:18px;color:var(--cream);
+    font-family:var(--mono);font-size:9px;letter-spacing:0.28em;text-transform:uppercase;
+    background:rgba(25,25,25,0.42);padding:6px 10px;backdrop-filter:blur(6px);border-radius:99px;
+  }
+  .about-text h2{margin-bottom:22px}
+  .about-prose{
+    font-family:var(--sans);font-weight:400;
+    font-size:clamp(15px,1.1vw,17px);line-height:1.65;
+    color:var(--ink-soft);max-width:62ch;
+  }
+  .about-prose p{margin:0 0 14px}
+  .about-prose b{font-weight:600;color:var(--ink)}
+  .about-prose em{font-style:normal;color:var(--rust);font-weight:500}
+  .about-meta{
+    margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border-top:1px solid var(--hair-strong);
+  }
+  .about-meta > div{padding:14px 0;border-right:1px solid var(--hair);padding-right:18px;margin-right:18px}
+  .about-meta > div:last-child{border-right:0;margin-right:0;padding-right:0}
+  .about-meta .k{font-family:var(--mono);font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+  .about-meta .v{font-family:var(--serif);font-size:18px;font-style:italic;font-weight:400;letter-spacing:-0.01em}
+  .about-meta .v b{font-style:normal;font-weight:500;font-family:var(--sans);font-size:15px}
+
+  /* ======================================================================
+     SECTION 3+4 — CLIENTS / MY WORK by category
+     ====================================================================== */
+  .clients{padding:var(--sec-y) var(--pad-x) calc(var(--sec-y) * 0.5)}
+  .clients-head{
+    display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;
+    border-bottom:1px solid var(--hair-strong);padding-bottom:20px;margin-bottom:0;
+  }
+  .clients-head .num{font-family:var(--mono);font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mute)}
+  .clients-head .num b{color:var(--rust);font-weight:500}
+  .clients-head .lead{
+    font-family:var(--sans);font-weight:400;font-size:14px;
+    color:var(--ink-soft);max-width:38ch;text-align:right;line-height:1.55;margin:0;
+  }
+
+  /* filter row */
+  .filter{
+    display:flex;flex-wrap:wrap;gap:6px;align-items:center;
+    padding:20px 0 16px;
+    position:sticky;top:52px;z-index:20;
+    background:linear-gradient(180deg,var(--cream) 70%,rgba(244,241,232,0));
+  }
+  .chip{
+    all:unset;cursor:pointer;
+    display:inline-flex;align-items:center;gap:8px;
+    padding:7px 14px;
+    border-radius:999px;border:1px solid var(--hair-strong);
+    font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:0.01em;
+    color:var(--ink);background:transparent;
+    transition:background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+  }
+  .chip:hover{border-color:var(--ink)}
+  .chip:focus-visible{outline:2px solid var(--rust);outline-offset:2px}
+  .chip .chip-c{
+    font-family:var(--mono);font-size:10px;letter-spacing:0.06em;
+    color:var(--mute);background:var(--cream-2);
+    padding:2px 7px;border-radius:99px;font-weight:500;
+    transition:background .2s ease, color .2s ease;
+  }
+  .chip.is-active{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+  .chip.is-active .chip-c{background:var(--copper);color:var(--ink)}
+
+  .filter-meta{
+    margin-left:auto;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mute);
+  }
+  .filter-meta b{color:var(--rust);font-weight:500}
+
+  /* reel grid */
+  .reels{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:16px;
+    padding:14px 0 24px;
+  }
+  @media (max-width:1380px){.reels{grid-template-columns:repeat(4,1fr)}}
+  @media (max-width:1180px){.reels{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:820px){.reels{grid-template-columns:repeat(2,1fr);gap:16px}}
+  @media (max-width:520px){.reels{grid-template-columns:1fr}}
+
+  .reel{
+    display:grid;grid-template-rows:auto auto auto;gap:8px;
+    color:var(--ink);
+    transition:opacity .35s ease, transform .35s ease, filter .35s ease;
+    will-change:opacity,transform;
+  }
+  .reel.is-hidden{opacity:0;transform:scale(0.96);pointer-events:none;position:absolute;visibility:hidden;height:0;margin:0;padding:0;overflow:hidden}
+
+  .reel-video{
+    aspect-ratio:9/16;
+    border-radius:8px;
+    background:radial-gradient(at 28% 22%, var(--g1,#e0d4b0), var(--g2,#9b4819) 50%, var(--g3,#1a3326) 110%);
+    box-shadow:0 30px 60px -32px rgba(155,72,25,0.42),
+               inset 0 0 60px rgba(255,250,240,0.1);
+    position:relative;overflow:hidden;
+    transition:transform .35s ease, box-shadow .35s ease;
+  }
+  .reel-video::after{
+    content:"";position:absolute;inset:0;
+    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.4  0 0 0 0 0.25  0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    mix-blend-mode:overlay;opacity:0.45;pointer-events:none;
+  }
+  .reel-video::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(25,25,25,0) 50%,rgba(25,25,25,0.55));
+    pointer-events:none;
+  }
+  .reel:hover .reel-video{transform:translateY(-4px);box-shadow:0 40px 80px -28px rgba(155,72,25,0.55)}
+  .reel:hover .play{transform:translate(-50%,-50%) scale(1.06);background:var(--cream);color:var(--ink)}
+
+  .play{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:44px;height:44px;border-radius:50%;
+    background:rgba(244,241,232,0.92);color:var(--ink);
+    display:grid;place-items:center;
+    backdrop-filter:blur(6px);
+    box-shadow:0 14px 24px -10px rgba(0,0,0,0.4);
+    transition:transform .25s ease, background .25s ease;
+    z-index:2;
+  }
+  .play::before{
+    content:"";display:block;width:0;height:0;
+    border-left:11px solid currentColor;
+    border-top:7px solid transparent;border-bottom:7px solid transparent;
+    margin-left:3px;
+  }
+
+  .duration{
+    position:absolute;bottom:12px;right:12px;z-index:2;
+    font-family:var(--mono);font-size:10px;letter-spacing:0.08em;
+    color:var(--cream);background:rgba(25,25,25,0.55);
+    padding:4px 8px;border-radius:99px;backdrop-filter:blur(6px);
+  }
+  .cat-pill{
+    position:absolute;top:12px;left:12px;z-index:2;
+    font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+    color:#d8c4a3;background:rgba(25,25,25,0.55);
+    padding:5px 10px;border-radius:99px;backdrop-filter:blur(6px);
+    border:1px solid rgba(155,72,25,0.45);
+  }
+
+  .reel-meta{
+    display:flex;align-items:baseline;justify-content:space-between;gap:8px;
+  }
+  .reel-brand{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:17px;line-height:1.1;letter-spacing:-0.012em;
+    font-variation-settings:"opsz" 36;
+  }
+  .reel:hover .reel-brand{color:var(--rust)}
+  .reel-year{
+    font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mute);font-weight:500;
+  }
+  .reel-desc{
+    font-family:var(--sans);font-size:12px;line-height:1.4;color:var(--mute);
+  }
+
+  .reels-empty{
+    text-align:center;padding:60px 0;
+    font-family:var(--serif);font-style:italic;font-size:22px;color:var(--mute);
+  }
+
+  .reels-more{display:flex;justify-content:center;padding:20px 0 8px}
+  .btn-more{
+    all:unset;cursor:pointer;
+    display:inline-flex;align-items:center;gap:14px;
+    padding:14px 30px;border-radius:999px;
+    border:1px solid var(--hair-strong);
+    background:transparent;color:var(--text-1);
+    font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:0.04em;
+    transition:background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+  }
+  .btn-more:hover{background:var(--ink);color:var(--cream);border-color:var(--ink);transform:translateY(-2px)}
+  .btn-more:focus-visible{outline:2px solid var(--rust);outline-offset:3px}
+  .btn-more .arr{font-family:var(--serif);font-style:italic;font-weight:400;font-size:18px;line-height:1;transition:transform .25s ease}
+  .btn-more.is-expanded .arr{transform:rotate(180deg)}
+
+  /* ======================================================================
+     SECTION 5 — feedback
+     ====================================================================== */
+  .feedback{
+    padding:var(--sec-y) var(--pad-x);
+    background:var(--green-deep);color:var(--cream);
+  }
+  .feedback-head{
+    display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;
+    border-bottom:1px solid rgba(244,241,232,0.18);padding-bottom:20px;
+  }
+  .feedback-head h2{color:var(--cream)}
+  .feedback-head h2 em{color:var(--rust)}
+  .feedback-head .num{font-family:var(--mono);font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(244,241,232,0.6)}
+  /* infinite testimonial marquee */
+  .feedback-marquee{
+    margin:32px calc(-1 * var(--pad-x)) 0;
+    overflow:hidden;
+    position:relative;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
+            mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
+  }
+  .marquee-track{
+    display:flex;align-items:center;gap:36px;
+    width:max-content;padding:36px 0;
+    animation:tmarquee 90s linear infinite;
+    will-change:transform;
+  }
+  .feedback-marquee:hover .marquee-track,
+  .marquee-track:focus-within{animation-play-state:paused}
+  @keyframes tmarquee{
+    from{transform:translate3d(0,0,0)}
+    to{transform:translate3d(-50%,0,0)}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{animation:none;flex-wrap:wrap;width:auto;justify-content:center;padding:0 var(--pad-x)}
+  }
+
+  .tcard{
+    flex-shrink:0;display:block;line-height:0;
+    filter:drop-shadow(0 30px 50px rgba(0,0,0,0.32));
+    transition:transform .35s ease;
+  }
+  .tcard.tilt-l{transform:rotate(-1.8deg) translateY(8px)}
+  .tcard.tilt-r{transform:rotate(1.6deg) translateY(-6px)}
+  .tcard.tilt-up{transform:translateY(-14px)}
+  .tcard.tilt-down{transform:translateY(12px)}
+  .tcard:hover{transform:translateY(-6px) scale(1.015)}
+  .tcard svg{display:block;height:auto;border-radius:18px;overflow:hidden;background:#fff}
+
+  .feedback-attribution{
+    margin-top:24px;
+    font-family:var(--mono);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;
+    color:rgba(244,241,232,0.55);
+    text-align:center;
+  }
+  .feedback-attribution b{color:var(--rust);font-weight:500}
+
+  /* ======================================================================
+     SECTION 6 — final CTA / contact
+     ====================================================================== */
+  .cta{
+    padding:calc(var(--sec-y) * 1.4) var(--pad-x) var(--sec-y);
+    text-align:center;position:relative;overflow:hidden;
+  }
+  /* subtle brick spotlight behind the CTA — matches hero spotlight pattern */
+  .cta-spotlight{
+    position:absolute;top:50%;left:50%;
+    width:min(900px,86vw);height:min(560px,52vh);
+    transform:translate(-50%,-50%);
+    background:radial-gradient(ellipse at 50% 50%, rgba(155,72,25,0.18) 0, rgba(155,72,25,0.07) 36%, transparent 72%);
+    filter:blur(3px);
+    pointer-events:none;z-index:0;
+  }
+
+  .cta-inner{position:relative;z-index:1;max-width:680px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+
+  /* eyebrow with hairline rules — anchors the section */
+  .cta-eyebrow{
+    display:inline-flex;align-items:center;gap:14px;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.32em;text-transform:uppercase;
+    color:var(--rust);font-weight:500;margin-bottom:28px;
+  }
+  .cta-eyebrow .rule{display:block;width:36px;height:1px;background:currentColor;opacity:.7}
+
+  /* display headline — big, italic emphasis on collaboration */
+  .cta h2{
+    font-family:var(--serif);font-weight:500;font-size:clamp(34px,4.4vw,60px);
+    line-height:1.1;letter-spacing:-0.022em;margin:0 0 36px;
+    font-variation-settings:"opsz" 96;
+    max-width:18ch;text-wrap:balance;
+  }
+  .cta h2 em{font-style:italic;color:var(--rust);font-weight:600}
+
+  /* primary CTA — single, well-padded button (44px+ touch target, focus visible) */
+  .cta .cta-btn{
+    padding:18px 36px;font-size:13.5px;letter-spacing:0.06em;
+    margin-bottom:32px;
+  }
+
+  /* email — secondary, clickable, big serif italic with underline */
+  .cta-email{
+    display:inline-block;
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:clamp(17px,1.6vw,22px);
+    color:var(--ink);letter-spacing:-0.005em;
+    border-bottom:1px solid var(--hair-strong);
+    padding:1px 0 3px;margin-bottom:28px;
+    transition:color .25s ease,border-color .25s ease;
+  }
+  .cta-email:hover,.cta-email:focus-visible{color:var(--rust);border-color:var(--rust)}
+
+  /* social row — tertiary, mono text-style links */
+  .cta-social{
+    display:inline-flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--mute);font-weight:500;
+  }
+  .cta-social a{
+    color:inherit;border-bottom:1px solid transparent;padding-bottom:2px;
+    transition:color .2s ease,border-color .2s ease;
+  }
+  .cta-social a:hover,.cta-social a:focus-visible{color:var(--rust);border-color:var(--rust)}
+  .cta-social .sep{color:var(--terra-2);opacity:.55}
+
+  /* ======================================================================
+     SECTION 7 — social media row
+     ====================================================================== */
+  .social{
+    padding:var(--sec-y) var(--pad-x);background:var(--cream-2);
+    border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);
+  }
+  .social-head{margin-bottom:28px}
+  .social-head h2{margin-top:10px;font-size:clamp(28px,3.4vw,44px)}
+  .social-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .social-card{
+    aspect-ratio:5/4;border-radius:6px;overflow:hidden;position:relative;
+    background:linear-gradient(160deg,#9b4819,#284b3a);
+    transition:transform .35s ease;
+  }
+  .social-card:hover{transform:translateY(-4px)}
+  .social-card.tik{background:linear-gradient(160deg,#1a3326,#9b4819)}
+  .social-card.yt{background:linear-gradient(160deg,#9b4819,#1a3326)}
+  .social-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,25,25,0) 50%,rgba(25,25,25,0.7))}
+  .social-card .label{
+    position:absolute;left:18px;bottom:64px;color:var(--cream);
+    font-family:var(--serif);font-style:italic;font-weight:400;font-size:26px;
+    z-index:2;letter-spacing:-0.012em;line-height:1;
+  }
+  .social-card .handle{
+    position:absolute;left:18px;bottom:46px;color:#d8c4a3;
+    font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:lowercase;z-index:2;
+  }
+  .social-card .open{
+    position:absolute;right:16px;bottom:14px;left:16px;color:var(--cream);
+    font-family:var(--mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;z-index:2;
+    display:flex;justify-content:space-between;align-items:center;
+    border-top:1px solid rgba(244,241,232,0.3);padding-top:10px;
+  }
+  .social-card .open::after{content:"↗";color:#d8c4a3;font-size:14px}
+  .social-card .icon{
+    position:absolute;top:16px;right:16px;width:30px;height:30px;
+    border-radius:50%;background:rgba(244,241,232,0.16);display:grid;place-items:center;
+    color:var(--cream);z-index:2;backdrop-filter:blur(6px);
+  }
+  .social-card svg{width:18px;height:18px}
+
+  /* ======================================================================
+     SECTION 8 — UGC starterpack
+     ====================================================================== */
+  .starter{
+    padding:var(--sec-y) var(--pad-x);
+    display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;
+    position:relative;
+  }
+  .starter-mark{
+    font-family:var(--mono);font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--rust);
+    margin-bottom:14px;
+  }
+  .starter h2{margin:0 0 16px}
+  .starter h2 em{color:var(--copper)}
+  .starter p{font-family:var(--sans);font-weight:400;font-size:15px;line-height:1.6;color:var(--ink-soft);max-width:54ch;margin:0 0 24px}
+  .starter p b{font-weight:600;color:var(--ink)}
+
+  .starter-card{
+    aspect-ratio:1.25/1;border-radius:8px;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(244,241,232,0.18), transparent 60%),
+      linear-gradient(160deg,#9b4819,#284b3a 70%, #1a3326);
+    position:relative;overflow:hidden;
+    box-shadow:0 50px 90px -50px rgba(155,72,25,0.5);
+  }
+  .starter-card::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.6  0 0 0 0 0.5  0 0 0 0 0.3  0 0 0 0.2 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");mix-blend-mode:overlay;opacity:0.55}
+
+  .starter-card .badge{
+    position:absolute;top:20px;left:20px;
+    font-family:var(--mono);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--cream);
+    border:1px solid rgba(244,241,232,0.5);padding:6px 12px;border-radius:99px;backdrop-filter:blur(6px);background:rgba(255,255,255,0.06);
+  }
+  .starter-card .name{
+    position:absolute;left:24px;bottom:80px;color:var(--cream);
+    font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(36px,4vw,56px);
+    line-height:0.95;letter-spacing:-0.025em;
+    font-variation-settings:"opsz" 96;
+  }
+  .starter-card .name b{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:0.22em;display:block;margin-top:10px;color:#d8c4a3;font-weight:500;text-transform:uppercase}
+  .starter-card .open{
+    position:absolute;left:24px;right:24px;bottom:22px;color:var(--cream);
+    font-family:var(--mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+    border-top:1px solid rgba(244,241,232,0.3);padding-top:12px;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .starter-card .open::after{content:"↗";color:#d8c4a3;font-size:16px}
+
+  /* ======================================================================
+     FOOTER
+     ====================================================================== */
+  footer{
+    padding:44px var(--pad-x) 24px;
+    background:var(--surface-dark-3);color:var(--cream);
+  }
+  .ftrow{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px}
+  .ft-logo{font-family:var(--serif);font-style:italic;font-weight:400;font-size:26px;letter-spacing:-0.02em;line-height:1}
+  .ft-logo small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;font-style:normal;font-weight:500;color:var(--copper);margin-top:10px}
+  .ftrow .ft-blurb{margin-top:12px;color:rgba(244,241,232,0.7);font-size:13px;line-height:1.5;max-width:38ch}
+  .ftrow h4{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--rust);margin:0 0 12px}
+  .ftrow ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:13px}
+  .ftrow ul a{color:rgba(244,241,232,0.85)}
+  .ftrow ul a:hover{color:var(--rust)}
+  .ftbottom{
+    display:flex;justify-content:space-between;align-items:center;
+    border-top:1px solid rgba(244,241,232,0.15);padding-top:16px;
+    font-family:var(--mono);font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(244,241,232,0.5);
+  }
+  .ftbottom a{color:rgba(244,241,232,0.7)}
+  .ftbottom a:hover{color:var(--rust)}
+
+  /* ======================================================================
+     Responsive
+     ====================================================================== */
+  @media (max-width: 960px){
+    .nav{grid-template-columns:1fr auto;padding:14px 24px}
+    .nav .menu{display:none}
+    .hero-main{grid-template-columns:1fr}
+    .hero-reels{height:420px}
+    .hero-bottom{grid-template-columns:1fr 1fr}
+    .hero-bottom > *{border-bottom:1px solid var(--hair)}
+    .hero-bottom > *:nth-child(2n){border-right:0}
+    .about-grid{grid-template-columns:1fr;gap:48px}
+    .clients-head{grid-template-columns:1fr}
+    .clients-head .lead{text-align:left}
+    .cat{grid-template-columns:1fr}
+    .cat-meta{position:static}
+    .feedback-grid{grid-template-columns:1fr}
+    .quote{border-right:0}
+    .cta-social{flex-direction:column;gap:10px}
+    .cta-social .sep{display:none}
+    .social-cards{grid-template-columns:1fr}
+    .starter{grid-template-columns:1fr;padding:80px 24px}
+    .ftrow{grid-template-columns:1fr 1fr;gap:32px}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none !important;transition:none !important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- ======================== NAV ======================== -->
+<nav class="nav" aria-label="Primary">
+  <div class="logo">Anet<b>· Trousilová</b></div>
+  <div class="menu">
+    <a href="#about">About</a>
+    <a href="#clients">Clients</a>
+    <a href="#feedback">Feedback</a>
+    <a href="#starter">Starter Pack</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="right">
+    <span class="lang"><button class="on">EN</button><button>CZ</button></span>
+    <a class="book" href="mailto:anetatrousilovaugc@gmail.com">Book</a>
+  </div>
+</nav>
+
+<!-- ======================== 1. HERO ======================== -->
+<section class="hero" id="top">
+  <div class="glow"></div>
+  <div class="glow b"></div>
+
+  <div class="hero-top">
+    <div class="pulse">UGC Creator</div>
+    <div><a href="https://www.instagram.com/trousilova_aneta/">@trousilova_aneta</a></div>
+  </div>
+
+  <div class="hero-main">
+    <div>
+      <div class="eyebrow hero-eye">Hi, my name is Anet</div>
+      <h1 class="hero-title">UGC that<br/><span class="name">delivers.</span></h1>
+      <p class="hero-tagline">
+        Content that feels like <em>a recommendation from a friend</em> —
+        and still delivers the best of what your product has to offer.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="mailto:anetatrousilovaugc@gmail.com">
+          Book a brief <span class="arr">→</span>
+        </a>
+        <a class="btn btn-ghost" href="#clients">See my work</a>
+      </div>
+    </div>
+
+    <div class="hero-reels" aria-hidden="true">
+      <div class="hero-col hero-col-up" data-hero-track>
+        <div class="hreel" style="--g1:#efd9b4;--g2:#9b4819;--g3:#1a3326"><span class="hreel-tag">Bübchen</span><span class="hreel-cat">Beauty</span></div>
+        <div class="hreel" style="--g1:#3a2a1a;--g2:#9b4819;--g3:#0e0703"><span class="hreel-tag">Costa Coffee</span><span class="hreel-cat">Food</span></div>
+        <div class="hreel" style="--g1:#e8d5ad;--g2:#925220;--g3:#1a3326"><span class="hreel-tag">Garnier</span><span class="hreel-cat">Beauty</span></div>
+        <div class="hreel" style="--g1:#f0d8b0;--g2:#bd8f53;--g3:#284b3a"><span class="hreel-tag">Wolt</span><span class="hreel-cat">Food</span></div>
+        <div class="hreel" style="--g1:#d8c4a3;--g2:#9b4819;--g3:#1a3326"><span class="hreel-tag">Snuggs</span><span class="hreel-cat">Fashion</span></div>
+        <div class="hreel" style="--g1:#f3e3c0;--g2:#bd8f53;--g3:#5a2c10"><span class="hreel-tag">UGO</span><span class="hreel-cat">Food</span></div>
+      </div>
+      <div class="hero-col hero-col-down" data-hero-track>
+        <div class="hreel" style="--g1:#e6cca5;--g2:#a86c33;--g3:#1a3326"><span class="hreel-tag">Mixa</span><span class="hreel-cat">Beauty</span></div>
+        <div class="hreel" style="--g1:#f0d8b0;--g2:#bd8f53;--g3:#3a1d0a"><span class="hreel-tag">mBank</span><span class="hreel-cat">App</span></div>
+        <div class="hreel" style="--g1:#d8c4a3;--g2:#9b4819;--g3:#2c1408"><span class="hreel-tag">Havlíkova Apotéka</span><span class="hreel-cat">Beauty</span></div>
+        <div class="hreel" style="--g1:#e8c89a;--g2:#9b4819;--g3:#1a3326"><span class="hreel-tag">Sellpy</span><span class="hreel-cat">Fashion</span></div>
+        <div class="hreel" style="--g1:#f3d9b0;--g2:#bd8f53;--g3:#5a2c10"><span class="hreel-tag">Powerlogy</span><span class="hreel-cat">Food</span></div>
+        <div class="hreel" style="--g1:#f0d8b0;--g2:#9b4819;--g3:#284b3a"><span class="hreel-tag">Orea Hotels</span><span class="hreel-cat">Events</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-bottom">
+    <div>
+      <div class="hb-k">Categories</div>
+      <div class="hb-v">Beauty · Food · Fashion</div>
+    </div>
+    <div>
+      <div class="hb-k">Also</div>
+      <div class="hb-v">Events &amp; Stores · Apps</div>
+    </div>
+    <div>
+      <div class="hb-k">Brands</div>
+      <div class="hb-v"><b>35+</b> <span class="h">/ see below</span></div>
+    </div>
+    <div>
+      <div class="hb-k">Find me</div>
+      <div class="hb-v">
+        <a href="https://www.instagram.com/trousilova_aneta/" aria-label="Instagram">IG</a>
+        ·
+        <a href="https://www.tiktok.com/@ugcaneta.trou" aria-label="TikTok">TikTok</a>
+        ·
+        <a href="https://youtube.com/@anetatrousilova22" aria-label="YouTube">YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== 2. FEW WORDS ABOUT ME ======================== -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-portrait" data-reveal>
+      <div class="cap">// portrait · placeholder</div>
+    </div>
+
+    <div class="about-text" data-reveal style="--rd:.08s">
+      <div class="eyebrow" style="margin-bottom:24px">Few words about me</div>
+      <h2 class="section-h">Anet has a <em>small</em> <span class="copper">problem.</span></h2>
+
+      <div class="about-prose">
+        <p>My name is Anet and I have one problem: I can't walk past a product without immediately wanting to film it. I make <b>UGC content</b> that feels like a recommendation from a friend — but still delivers the best of what your product has to offer.</p>
+        <p><em>Lifestyle, food, travel, sport, beauty, home decor, mall stores, apps, online products, events…</em> basically anything that can be shown to the world.</p>
+        <p>The list of brands I've worked with is long enough to <b>guarantee my quality</b> and your satisfaction.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================== 3+4. CLIENTS / MY WORK — filterable reel grid ======================== -->
+<section class="clients" id="clients">
+  <div class="clients-head" data-reveal>
+    <div>
+      <div class="num">Clients · <b>My Work</b> · 001 — 035+</div>
+      <h2 class="section-h" style="margin-top:18px">Selected <em>reels.</em></h2>
+    </div>
+    <p class="lead">Every reel below is a real, completed collaboration. Filter by category, tap to play.</p>
+  </div>
+
+  <div class="filter" data-reveal style="--rd:.06s" role="tablist" aria-label="Filter reels by category">
+    <button class="chip is-active" role="tab" aria-selected="true" data-filter="all">
+      <span class="chip-l">All</span><span class="chip-c" data-count-all>35</span>
+    </button>
+    <button class="chip" role="tab" aria-selected="false" data-filter="beauty">
+      <span class="chip-l">Beauty</span><span class="chip-c" data-count-beauty>7</span>
+    </button>
+    <button class="chip" role="tab" aria-selected="false" data-filter="food">
+      <span class="chip-l">Food</span><span class="chip-c" data-count-food>8</span>
+    </button>
+    <button class="chip" role="tab" aria-selected="false" data-filter="fashion">
+      <span class="chip-l">Fashion</span><span class="chip-c" data-count-fashion>6</span>
+    </button>
+    <button class="chip" role="tab" aria-selected="false" data-filter="events">
+      <span class="chip-l">Events &amp; Stores</span><span class="chip-c" data-count-events>8</span>
+    </button>
+    <button class="chip" role="tab" aria-selected="false" data-filter="apps">
+      <span class="chip-l">Apps</span><span class="chip-c" data-count-apps>6</span>
+    </button>
+    <span class="filter-meta" aria-live="polite"><b data-shown>35</b> reels shown</span>
+  </div>
+
+  <div class="reels" id="reels" data-reveal style="--rd:.12s">
+
+    <!-- BEAUTY -->
+    <a class="reel" href="#" data-cat="beauty" style="--g1:#efd9b4;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:24</span><span class="cat-pill">Beauty</span></div>
+      <div class="reel-meta"><span class="reel-brand">Garnier</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="beauty" style="--g1:#f3e3c0;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:18</span><span class="cat-pill">Beauty</span></div>
+      <div class="reel-meta"><span class="reel-brand">Mixa</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="beauty" style="--g1:#e8d5ad;--g2:#a36b3a;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:32</span><span class="cat-pill">Beauty</span></div>
+      <div class="reel-meta"><span class="reel-brand">Bübchen</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="beauty" style="--g1:#d8c4a3;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">1:12</span><span class="cat-pill">Beauty</span></div>
+      <div class="reel-meta"><span class="reel-brand">Havlíkova Apotéka</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="beauty" style="--g1:#f0d8b0;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:21</span><span class="cat-pill">Beauty</span></div>
+      <div class="reel-meta"><span class="reel-brand">Venira</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="beauty" style="--g1:#e6cca5;--g2:#925220;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:28</span><span class="cat-pill">Beauty</span></div>
+      <div class="reel-meta"><span class="reel-brand">Regenix</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="beauty" style="--g1:#e8c89a;--g2:#a86c33;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:19</span><span class="cat-pill">Beauty</span></div>
+      <div class="reel-meta"><span class="reel-brand">Vera</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+
+    <!-- FOOD -->
+    <a class="reel" href="#" data-cat="food" style="--g1:#1a3326;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:22</span><span class="cat-pill">Food</span></div>
+      <div class="reel-meta"><span class="reel-brand">Costa Coffee</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="food" style="--g1:#f0e0c0;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:30</span><span class="cat-pill">Food</span></div>
+      <div class="reel-meta"><span class="reel-brand">Wolt</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="food" style="--g1:#f3d9b0;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:17</span><span class="cat-pill">Food</span></div>
+      <div class="reel-meta"><span class="reel-brand">UGO</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="food" style="--g1:#d8c4a3;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:25</span><span class="cat-pill">Food</span></div>
+      <div class="reel-meta"><span class="reel-brand">Šufan</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="food" style="--g1:#e6cca5;--g2:#a86c33;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:31</span><span class="cat-pill">Food</span></div>
+      <div class="reel-meta"><span class="reel-brand">Powerlogy</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="food" style="--g1:#f0d8b0;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:14</span><span class="cat-pill">Food</span></div>
+      <div class="reel-meta"><span class="reel-brand">Franui</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="food" style="--g1:#e8d5ad;--g2:#925220;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:20</span><span class="cat-pill">Food</span></div>
+      <div class="reel-meta"><span class="reel-brand">Lepší Kuchyň</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="food" style="--g1:#f3e3c0;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:23</span><span class="cat-pill">Food</span></div>
+      <div class="reel-meta"><span class="reel-brand">Citroněk</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+
+    <!-- FASHION -->
+    <a class="reel" href="#" data-cat="fashion" style="--g1:#e6cca5;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:26</span><span class="cat-pill">Fashion</span></div>
+      <div class="reel-meta"><span class="reel-brand">Sellpy</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="fashion" style="--g1:#d8c4a3;--g2:#a36b3a;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:18</span><span class="cat-pill">Fashion</span></div>
+      <div class="reel-meta"><span class="reel-brand">Snuggs</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="fashion" style="--g1:#f0d8b0;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:22</span><span class="cat-pill">Fashion</span></div>
+      <div class="reel-meta"><span class="reel-brand">Skinners</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="fashion" style="--g1:#e8d5ad;--g2:#925220;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:24</span><span class="cat-pill">Fashion</span></div>
+      <div class="reel-meta"><span class="reel-brand">Textilomanie</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="fashion" style="--g1:#f3e3c0;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:19</span><span class="cat-pill">Fashion</span></div>
+      <div class="reel-meta"><span class="reel-brand">Triby</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="fashion" style="--g1:#d8b88a;--g2:#a36b3a;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:21</span><span class="cat-pill">Fashion</span></div>
+      <div class="reel-meta"><span class="reel-brand">Ruf Ruf</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+
+    <!-- EVENTS & STORES -->
+    <a class="reel" href="#" data-cat="events" style="--g1:#f0d8b0;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:34</span><span class="cat-pill">Events</span></div>
+      <div class="reel-meta"><span class="reel-brand">OC Nový Smíchov</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="events" style="--g1:#e6cca5;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:28</span><span class="cat-pill">Events</span></div>
+      <div class="reel-meta"><span class="reel-brand">Máj</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="events" style="--g1:#d8c4a3;--g2:#a36b3a;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:42</span><span class="cat-pill">Events</span></div>
+      <div class="reel-meta"><span class="reel-brand">Orea Hotels</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="events" style="--g1:#e8d5ad;--g2:#925220;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:25</span><span class="cat-pill">Events</span></div>
+      <div class="reel-meta"><span class="reel-brand">Baumax</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="events" style="--g1:#f3e3c0;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:18</span><span class="cat-pill">Events</span></div>
+      <div class="reel-meta"><span class="reel-brand">Bob Sanil</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="events" style="--g1:#e6cca5;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:20</span><span class="cat-pill">Events</span></div>
+      <div class="reel-meta"><span class="reel-brand">Tiskařík</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="events" style="--g1:#d8c4a3;--g2:#a86c33;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:16</span><span class="cat-pill">Events</span></div>
+      <div class="reel-meta"><span class="reel-brand">Planto Besto</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="events" style="--g1:#f0d8b0;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:22</span><span class="cat-pill">Events</span></div>
+      <div class="reel-meta"><span class="reel-brand">Gingles</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+
+    <!-- APPS -->
+    <a class="reel" href="#" data-cat="apps" style="--g1:#e8d5ad;--g2:#925220;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:30</span><span class="cat-pill">App</span></div>
+      <div class="reel-meta"><span class="reel-brand">mBank</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="apps" style="--g1:#f3e3c0;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:18</span><span class="cat-pill">App</span></div>
+      <div class="reel-meta"><span class="reel-brand">Rekola</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="apps" style="--g1:#e6cca5;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:20</span><span class="cat-pill">App</span></div>
+      <div class="reel-meta"><span class="reel-brand">Next Bike</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="apps" style="--g1:#d8c4a3;--g2:#a36b3a;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:24</span><span class="cat-pill">App</span></div>
+      <div class="reel-meta"><span class="reel-brand">Levels</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="apps" style="--g1:#e8d5ad;--g2:#925220;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:16</span><span class="cat-pill">App</span></div>
+      <div class="reel-meta"><span class="reel-brand">Miles</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+    <a class="reel" href="#" data-cat="apps" style="--g1:#f0d8b0;--g2:#9b4819;--g3:#284b3a">
+      <div class="reel-video"><span class="play"></span><span class="duration">0:19</span><span class="cat-pill">App</span></div>
+      <div class="reel-meta"><span class="reel-brand">Guláš</span></div>
+      <div class="reel-desc">Reel — placeholder</div>
+    </a>
+
+  </div>
+
+  <p class="reels-empty" hidden>No reels in this category yet.</p>
+
+  <div class="reels-more" data-reveal style="--rd:.18s">
+    <button class="btn-more" data-show-more type="button" hidden>
+      <span data-show-more-label>Show more</span>
+      <span class="arr" aria-hidden="true">↓</span>
+    </button>
+  </div>
+</section>
+
+<!-- ======================== 5. FEEDBACK — infinite scroll of testimonial screenshots ======================== -->
+<section class="feedback" id="feedback">
+  <div class="feedback-head" data-reveal>
+    <div>
+      <div class="eyebrow" style="color:var(--rust)">Feedback</div>
+      <h2 class="section-h" style="margin-top:18px">In their <em>own</em> words.</h2>
+    </div>
+    <div class="num">— Selected screenshots —</div>
+  </div>
+
+  <div class="feedback-marquee" data-reveal style="--rd:.1s" aria-roledescription="testimonial screenshots scrolling">
+    <div class="marquee-track" data-marquee-track>
+
+      <!-- A. Instagram DM -->
+      <div class="tcard tilt-l" aria-label="Instagram DM screenshot placeholder">
+        <svg viewBox="0 0 290 380" width="290" height="380" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="igA" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#feda77"/><stop offset=".5" stop-color="#f58529"/><stop offset="1" stop-color="#dd2a7b"/>
+            </linearGradient>
+            <linearGradient id="igAb" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#5f3eff"/><stop offset="1" stop-color="#dd2a7b"/>
+            </linearGradient>
+          </defs>
+          <rect width="290" height="380" rx="22" fill="#fff"/>
+          <rect width="290" height="56" fill="url(#igA)"/>
+          <path d="M16 28 L26 22 V34 Z" fill="#fff"/>
+          <circle cx="52" cy="28" r="13" fill="#fff" opacity=".18"/>
+          <circle cx="52" cy="28" r="11" fill="#9b4819"/>
+          <rect x="72" y="22" width="86" height="9" rx="4" fill="#fff" opacity=".95"/>
+          <rect x="72" y="36" width="58" height="6" rx="3" fill="#fff" opacity=".55"/>
+          <circle cx="246" cy="28" r="9" fill="none" stroke="#fff" stroke-width="2"/>
+          <rect x="262" y="22" width="14" height="12" rx="2" fill="none" stroke="#fff" stroke-width="2"/>
+          <rect x="14" y="76" width="170" height="40" rx="20" fill="#f1f1f5"/>
+          <rect x="28" y="88" width="140" height="6" rx="3" fill="#a4a3ae"/>
+          <rect x="28" y="100" width="100" height="6" rx="3" fill="#a4a3ae"/>
+          <rect x="106" y="130" width="170" height="32" rx="16" fill="url(#igAb)"/>
+          <rect x="120" y="142" width="142" height="6" rx="3" fill="#fff" opacity=".95"/>
+          <rect x="14" y="176" width="208" height="58" rx="22" fill="#f1f1f5"/>
+          <rect x="28" y="190" width="178" height="6" rx="3" fill="#a4a3ae"/>
+          <rect x="28" y="202" width="160" height="6" rx="3" fill="#a4a3ae"/>
+          <rect x="28" y="214" width="118" height="6" rx="3" fill="#a4a3ae"/>
+          <rect x="156" y="248" width="120" height="32" rx="16" fill="url(#igAb)"/>
+          <rect x="170" y="260" width="92" height="6" rx="3" fill="#fff" opacity=".95"/>
+          <circle cx="232" cy="252" r="14" fill="#fff"/>
+          <path d="M232 250 c -3 -5 -9 -2 -9 4 c 0 4 5 7 9 11 c 4 -4 9 -7 9 -11 c 0 -6 -6 -9 -9 -4 z" fill="#dd2a7b"/>
+          <rect y="318" width="290" height="62" fill="#fafafd"/>
+          <rect x="14" y="334" width="240" height="32" rx="16" fill="#f1f1f5"/>
+          <circle cx="266" cy="350" r="11" fill="url(#igAb)"/>
+          <text x="14" y="375" font-family="ui-monospace,Menlo,monospace" font-size="8" fill="#a4a3ae">// screenshot placeholder · ig dm</text>
+        </svg>
+      </div>
+
+      <!-- B. iMessage -->
+      <div class="tcard tilt-up" aria-label="iMessage screenshot placeholder">
+        <svg viewBox="0 0 285 440" width="285" height="440" xmlns="http://www.w3.org/2000/svg">
+          <rect width="285" height="440" rx="20" fill="#fff"/>
+          <rect width="285" height="68" fill="#f5f5f7"/>
+          <text x="20" y="42" font-family="-apple-system,Helvetica,sans-serif" font-size="13" font-weight="500" fill="#0084ff">‹ Edit</text>
+          <circle cx="142" cy="34" r="14" fill="#9b4819"/>
+          <rect x="124" y="50" width="38" height="6" rx="3" fill="#1d1d1f" opacity=".82"/>
+          <text x="252" y="42" font-family="-apple-system,sans-serif" font-size="11" fill="#0084ff">FaceTime</text>
+          <rect x="14" y="92" width="170" height="42" rx="21" fill="#e9e9eb"/>
+          <rect x="28" y="106" width="138" height="6" rx="3" fill="#5e5e63"/>
+          <rect x="28" y="118" width="92" height="6" rx="3" fill="#5e5e63"/>
+          <rect x="14" y="146" width="200" height="74" rx="20" fill="#e9e9eb"/>
+          <rect x="28" y="160" width="170" height="6" rx="3" fill="#5e5e63"/>
+          <rect x="28" y="172" width="158" height="6" rx="3" fill="#5e5e63"/>
+          <rect x="28" y="184" width="142" height="6" rx="3" fill="#5e5e63"/>
+          <rect x="28" y="196" width="100" height="6" rx="3" fill="#5e5e63"/>
+          <rect x="115" y="234" width="158" height="40" rx="20" fill="#0084ff"/>
+          <rect x="130" y="248" width="128" height="6" rx="3" fill="#fff" opacity=".95"/>
+          <rect x="130" y="260" width="86" height="6" rx="3" fill="#fff" opacity=".95"/>
+          <text x="265" y="282" text-anchor="end" font-family="-apple-system,sans-serif" font-size="9" fill="#8c8c93">Read</text>
+          <rect x="14" y="294" width="180" height="56" rx="20" fill="#e9e9eb"/>
+          <rect x="28" y="308" width="150" height="6" rx="3" fill="#5e5e63"/>
+          <rect x="28" y="320" width="128" height="6" rx="3" fill="#5e5e63"/>
+          <rect x="28" y="332" width="64" height="6" rx="3" fill="#5e5e63"/>
+          <rect x="170" y="362" width="105" height="32" rx="16" fill="#0084ff"/>
+          <rect x="184" y="374" width="78" height="6" rx="3" fill="#fff" opacity=".95"/>
+          <rect y="396" width="285" height="44" fill="#f5f5f7"/>
+          <circle cx="22" cy="418" r="10" fill="#e9e9eb"/>
+          <text x="22" y="422" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="13" font-weight="600" fill="#5e5e63">+</text>
+          <rect x="40" y="408" width="200" height="22" rx="11" fill="#fff" stroke="#dadadc"/>
+          <text x="50" y="423" font-family="-apple-system,sans-serif" font-size="10" fill="#a4a4a8">iMessage</text>
+          <text x="14" y="435" font-family="ui-monospace,Menlo,monospace" font-size="7" fill="#a4a4a8">// screenshot placeholder · imessage</text>
+        </svg>
+      </div>
+
+      <!-- C. WhatsApp -->
+      <div class="tcard tilt-r" aria-label="WhatsApp screenshot placeholder">
+        <svg viewBox="0 0 290 360" width="290" height="360" xmlns="http://www.w3.org/2000/svg">
+          <rect width="290" height="360" rx="20" fill="#efe7dd"/>
+          <rect width="290" height="60" fill="#075e54"/>
+          <path d="M16 30 L26 24 V36 Z" fill="#fff"/>
+          <circle cx="50" cy="30" r="14" fill="#fff" opacity=".15"/>
+          <circle cx="50" cy="30" r="12" fill="#bd8f53"/>
+          <rect x="72" y="22" width="80" height="9" rx="4" fill="#fff" opacity=".95"/>
+          <rect x="72" y="38" width="50" height="6" rx="3" fill="#fff" opacity=".55"/>
+          <path d="M242 24 H260 V36 H242 Z M260 28 L266 24 V36 L260 32" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="278" cy="30" r="2.5" fill="#fff"/><circle cx="278" cy="22" r="2.5" fill="#fff"/><circle cx="278" cy="38" r="2.5" fill="#fff"/>
+          <!-- received bubble -->
+          <path d="M14 78 H170 a8 8 0 0 1 8 8 V120 a8 8 0 0 1 -8 8 H22 L14 134 V86 a8 8 0 0 1 0 -8 Z" fill="#fff"/>
+          <rect x="26" y="92" width="132" height="6" rx="3" fill="#5b6166"/>
+          <rect x="26" y="104" width="100" height="6" rx="3" fill="#5b6166"/>
+          <text x="166" y="124" text-anchor="end" font-family="-apple-system,sans-serif" font-size="8" fill="#9aa1a6">14:32</text>
+          <!-- sent bubble -->
+          <path d="M120 152 H276 a8 8 0 0 1 0 16 V194 a8 8 0 0 1 -8 8 H120 a8 8 0 0 1 -8 -8 V160 a8 8 0 0 1 8 -8 Z" fill="#dcf8c6"/>
+          <rect x="130" y="166" width="138" height="6" rx="3" fill="#3a4346"/>
+          <rect x="130" y="178" width="106" height="6" rx="3" fill="#3a4346"/>
+          <text x="246" y="198" font-family="-apple-system,sans-serif" font-size="8" fill="#5e8d6a">14:33</text>
+          <path d="M256 196 l3 2 6 -7 m -8 5 l3 2 6 -7" stroke="#34b7f1" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <!-- received bubble 2 -->
+          <path d="M14 218 H210 a8 8 0 0 1 8 8 V268 a8 8 0 0 1 -8 8 H22 L14 282 V226 a8 8 0 0 1 0 -8 Z" fill="#fff"/>
+          <rect x="26" y="232" width="174" height="6" rx="3" fill="#5b6166"/>
+          <rect x="26" y="244" width="160" height="6" rx="3" fill="#5b6166"/>
+          <rect x="26" y="256" width="120" height="6" rx="3" fill="#5b6166"/>
+          <text x="206" y="272" text-anchor="end" font-family="-apple-system,sans-serif" font-size="8" fill="#9aa1a6">14:36</text>
+          <rect y="298" width="290" height="62" fill="#efe7dd"/>
+          <rect x="14" y="310" width="232" height="34" rx="17" fill="#fff"/>
+          <circle cx="22" cy="327" r="6" fill="#9aa1a6"/>
+          <circle cx="266" cy="327" r="14" fill="#075e54"/>
+          <path d="M260 322 v10 m -3 -3 l3 3 3 -3" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="14" y="356" font-family="ui-monospace,Menlo,monospace" font-size="7" fill="#9aa1a6">// screenshot placeholder · whatsapp</text>
+        </svg>
+      </div>
+
+      <!-- D. Instagram comment -->
+      <div class="tcard tilt-down" aria-label="Instagram comment screenshot placeholder">
+        <svg viewBox="0 0 320 210" width="320" height="210" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="igD" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#feda77"/><stop offset=".5" stop-color="#dd2a7b"/><stop offset="1" stop-color="#5f3eff"/>
+            </linearGradient>
+          </defs>
+          <rect width="320" height="210" rx="18" fill="#fff"/>
+          <text x="20" y="32" font-family="-apple-system,sans-serif" font-size="11" font-weight="600" fill="#262626">Comments</text>
+          <line x1="20" y1="44" x2="300" y2="44" stroke="#efefef"/>
+          <!-- comment -->
+          <circle cx="36" cy="74" r="14" fill="url(#igD)"/>
+          <circle cx="36" cy="74" r="11" fill="#fff"/>
+          <circle cx="36" cy="74" r="9" fill="#9b4819"/>
+          <rect x="60" y="62" width="68" height="8" rx="4" fill="#262626"/>
+          <rect x="60" y="78" width="220" height="6" rx="3" fill="#5b5b5b"/>
+          <rect x="60" y="90" width="200" height="6" rx="3" fill="#5b5b5b"/>
+          <rect x="60" y="102" width="138" height="6" rx="3" fill="#5b5b5b"/>
+          <text x="60" y="124" font-family="-apple-system,sans-serif" font-size="9" fill="#8e8e8e">2 d ago</text>
+          <text x="100" y="124" font-family="-apple-system,sans-serif" font-size="9" font-weight="600" fill="#8e8e8e">Reply</text>
+          <path d="M286 70 c -3 -5 -10 -2 -10 4 c 0 4 6 8 10 12 c 4 -4 10 -8 10 -12 c 0 -6 -7 -9 -10 -4 z" fill="none" stroke="#262626" stroke-width="1.5"/>
+          <text x="280" y="100" font-family="-apple-system,sans-serif" font-size="9" fill="#8e8e8e">17</text>
+          <line x1="20" y1="142" x2="300" y2="142" stroke="#efefef"/>
+          <!-- second comment -->
+          <circle cx="36" cy="170" r="11" fill="#bd8f53"/>
+          <rect x="56" y="160" width="56" height="7" rx="3" fill="#262626"/>
+          <rect x="56" y="174" width="180" height="6" rx="3" fill="#5b5b5b"/>
+          <rect x="56" y="186" width="120" height="6" rx="3" fill="#5b5b5b"/>
+          <text x="296" y="204" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-size="8" fill="#8e8e8e">// ig comment placeholder</text>
+        </svg>
+      </div>
+
+      <!-- E. Email reply -->
+      <div class="tcard" aria-label="Email reply screenshot placeholder">
+        <svg viewBox="0 0 360 230" width="360" height="230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="360" height="230" rx="18" fill="#fff"/>
+          <rect width="360" height="44" fill="#f6f4ef"/>
+          <circle cx="22" cy="22" r="6" fill="#ed6a5e"/>
+          <circle cx="40" cy="22" r="6" fill="#f5be4f"/>
+          <circle cx="58" cy="22" r="6" fill="#62c554"/>
+          <text x="180" y="27" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="11" fill="#5e5b54">Mail</text>
+          <text x="20" y="76" font-family="-apple-system,sans-serif" font-size="10" font-weight="600" letter-spacing=".06em" fill="#9b4819">RE: BRIEF · COLLAB INQUIRY</text>
+          <line x1="20" y1="84" x2="340" y2="84" stroke="#ebe5d3"/>
+          <circle cx="32" cy="106" r="11" fill="#284b3a"/>
+          <rect x="50" y="98" width="100" height="8" rx="4" fill="#1a1814"/>
+          <rect x="50" y="112" width="68" height="6" rx="3" fill="#847d6c"/>
+          <text x="340" y="106" text-anchor="end" font-family="-apple-system,sans-serif" font-size="9" fill="#847d6c">today · 11:24</text>
+          <rect x="20" y="138" width="320" height="6" rx="3" fill="#4a463d"/>
+          <rect x="20" y="150" width="306" height="6" rx="3" fill="#4a463d"/>
+          <rect x="20" y="162" width="320" height="6" rx="3" fill="#4a463d"/>
+          <rect x="20" y="174" width="220" height="6" rx="3" fill="#4a463d"/>
+          <rect x="20" y="194" width="78" height="22" rx="11" fill="#9b4819"/>
+          <text x="59" y="208" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="10" font-weight="500" fill="#fff">Reply</text>
+          <text x="340" y="222" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-size="8" fill="#847d6c">// email placeholder</text>
+        </svg>
+      </div>
+
+      <!-- F. TikTok comment -->
+      <div class="tcard tilt-l" aria-label="TikTok comment screenshot placeholder">
+        <svg viewBox="0 0 270 340" width="270" height="340" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="tikF" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#69c9d0"/><stop offset="1" stop-color="#ee1d52"/>
+            </linearGradient>
+          </defs>
+          <rect width="270" height="340" rx="20" fill="#000"/>
+          <!-- video preview area -->
+          <rect x="12" y="12" width="246" height="138" rx="12" fill="#1c1c1e"/>
+          <circle cx="135" cy="78" r="22" fill="rgba(255,255,255,.2)"/>
+          <path d="M129 70 L150 81 L129 92 Z" fill="#fff"/>
+          <rect x="22" y="124" width="100" height="6" rx="3" fill="#fff" opacity=".75"/>
+          <rect x="22" y="134" width="60" height="5" rx="2.5" fill="#fff" opacity=".55"/>
+          <!-- music note pill -->
+          <rect x="160" y="124" width="86" height="20" rx="10" fill="rgba(255,255,255,.12)"/>
+          <text x="170" y="138" font-family="-apple-system,sans-serif" font-size="9" fill="#fff">♪ original</text>
+          <!-- comments header -->
+          <text x="20" y="172" font-family="-apple-system,sans-serif" font-size="11" font-weight="600" fill="#fff">Comments</text>
+          <text x="98" y="172" font-family="-apple-system,sans-serif" font-size="11" fill="rgba(255,255,255,.55)">128</text>
+          <line x1="12" y1="184" x2="258" y2="184" stroke="rgba(255,255,255,.12)"/>
+          <!-- comment 1 -->
+          <circle cx="28" cy="208" r="13" fill="url(#tikF)"/>
+          <rect x="48" y="200" width="62" height="7" rx="3.5" fill="#fff"/>
+          <rect x="48" y="214" width="200" height="6" rx="3" fill="rgba(255,255,255,.85)"/>
+          <rect x="48" y="226" width="160" height="6" rx="3" fill="rgba(255,255,255,.85)"/>
+          <rect x="48" y="238" width="84" height="6" rx="3" fill="rgba(255,255,255,.85)"/>
+          <text x="48" y="258" font-family="-apple-system,sans-serif" font-size="9" fill="rgba(255,255,255,.5)">3 d</text>
+          <text x="74" y="258" font-family="-apple-system,sans-serif" font-size="9" fill="rgba(255,255,255,.5)">Reply</text>
+          <path d="M242 214 c -3 -5 -10 -2 -10 4 c 0 4 6 8 10 12 c 4 -4 10 -8 10 -12 c 0 -6 -7 -9 -10 -4 z" fill="#ee1d52"/>
+          <text x="246" y="240" text-anchor="end" font-family="-apple-system,sans-serif" font-size="9" font-weight="600" fill="#fff">42</text>
+          <line x1="12" y1="276" x2="258" y2="276" stroke="rgba(255,255,255,.12)"/>
+          <!-- comment 2 -->
+          <circle cx="28" cy="298" r="11" fill="#9b4819"/>
+          <rect x="46" y="288" width="56" height="7" rx="3.5" fill="#fff"/>
+          <rect x="46" y="302" width="160" height="6" rx="3" fill="rgba(255,255,255,.85)"/>
+          <rect x="46" y="314" width="120" height="6" rx="3" fill="rgba(255,255,255,.85)"/>
+          <text x="258" y="334" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-size="8" fill="rgba(255,255,255,.4)">// tiktok placeholder</text>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+
+  <p class="feedback-attribution">All screenshots <b>· placeholders ·</b> ready to swap for real DMs &amp; emails</p>
+</section>
+
+<!-- ======================== 6. FINAL CTA / CONTACT ======================== -->
+<section class="cta" id="contact">
+  <div class="cta-spotlight" aria-hidden="true"></div>
+
+  <div class="cta-inner">
+    <div class="cta-eyebrow" data-reveal><span class="rule" aria-hidden="true"></span>Get in touch<span class="rule" aria-hidden="true"></span></div>
+
+    <h2 data-reveal style="--rd:.08s">I look forward to our <em>future collaboration!</em></h2>
+
+    <a class="btn btn-primary cta-btn" data-reveal style="--rd:.16s" href="mailto:anetatrousilovaugc@gmail.com">
+      Send a brief <span class="arr">→</span>
+    </a>
+
+    <a class="cta-email" data-reveal style="--rd:.24s" href="mailto:anetatrousilovaugc@gmail.com">anetatrousilovaugc@gmail.com</a>
+
+    <div class="cta-social" data-reveal style="--rd:.32s">
+      <a href="https://www.instagram.com/trousilova_aneta/">@trousilova_aneta</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <a href="https://www.tiktok.com/@ugcaneta.trou">@ugcaneta.trou</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <a href="https://youtube.com/@anetatrousilova22">@anetatrousilova22</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== 7. SOCIAL ======================== -->
+<section class="social">
+  <div class="social-head" data-reveal>
+    <div class="eyebrow">More examples</div>
+    <h2 class="section-h">Check out my <em>social media</em> for more examples.</h2>
+  </div>
+
+  <div class="social-cards">
+    <a class="social-card tik" data-reveal style="--rd:.05s" href="https://www.tiktok.com/@ugcaneta.trou">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.66a8.16 8.16 0 0 0 4.79 1.52V6.69h-1.86z"/></svg>
+      </div>
+      <div class="label">TikTok</div>
+      <div class="handle">@ugcaneta.trou</div>
+      <div class="open">Open profile</div>
+    </a>
+
+    <a class="social-card" href="https://www.instagram.com/trousilova_aneta/" data-reveal style="--rd:.13s">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+      </div>
+      <div class="label">Instagram</div>
+      <div class="handle">@trousilova_aneta</div>
+      <div class="open">Open profile</div>
+    </a>
+
+    <a class="social-card yt" data-reveal style="--rd:.21s" href="https://youtube.com/@anetatrousilova22">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 6.2a3 3 0 0 0-2.1-2.1C19 3.5 12 3.5 12 3.5s-7 0-8.9.6A3 3 0 0 0 1 6.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 17.8a3 3 0 0 0 2.1 2.1C5 20.5 12 20.5 12 20.5s7 0 8.9-.6A3 3 0 0 0 23 17.8a31 31 0 0 0 .5-5.8A31 31 0 0 0 23 6.2zM10 15.5v-7l6 3.5z"/></svg>
+      </div>
+      <div class="label">YouTube</div>
+      <div class="handle">@anetatrousilova22</div>
+      <div class="open">Open channel</div>
+    </a>
+  </div>
+</section>
+
+<!-- ======================== 8. UGC STARTERPACK ======================== -->
+<section class="starter" id="starter">
+  <div data-reveal>
+    <div class="starter-mark">Building UGC community &amp; workshops</div>
+    <h2 class="section-h">ugc <em>starterpack.</em></h2>
+    <p>Follow on Instagram for community and workshops.</p>
+    <a class="btn btn-primary" href="https://www.instagram.com/ugc.starterpack/">
+      Follow on Instagram <span class="arr">→</span>
+    </a>
+  </div>
+
+  <a class="starter-card" data-reveal style="--rd:.12s" href="https://www.instagram.com/ugc.starterpack/">
+    <div class="badge">@ugc.starterpack</div>
+    <div class="name">starter<br/>pack.<b>Community · workshops</b></div>
+    <div class="open"><span>Open Instagram</span></div>
+  </a>
+</section>
+
+<!-- ======================== FOOTER ======================== -->
+<footer>
+  <div class="ftrow">
+    <div data-reveal>
+      <div class="ft-logo">Anet Trousilová<small>UGC Creator · Praha</small></div>
+      <p class="ft-blurb">UGC content that feels like a recommendation from a friend — but still delivers the best of what your product has to offer.</p>
+    </div>
+    <div>
+      <h4>Site</h4>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#clients">Clients</a></li>
+        <li><a href="#feedback">Feedback</a></li>
+        <li><a href="#starter">Starter Pack</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:anetatrousilovaugc@gmail.com">anetatrousilovaugc@gmail.com</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Social</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/trousilova_aneta/">Instagram · personal</a></li>
+        <li><a href="https://www.instagram.com/ugc.starterpack/">Instagram · starter pack</a></li>
+        <li><a href="https://www.tiktok.com/@ugcaneta.trou">TikTok</a></li>
+        <li><a href="https://youtube.com/@anetatrousilova22">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ftbottom">
+    <span>© 2026 Anet Trousilová · All rights reserved</span>
+    <span><a href="mailto:anetatrousilovaugc@gmail.com">anetatrousilovaugc@gmail.com</a></span>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    let REELS_LIMIT = window.matchMedia('(max-width:860px)').matches ? 6 : 15;  /* 3 rows × 5 cols on desktop */
+    const chips = document.querySelectorAll('.filter .chip');
+    const reels = Array.from(document.querySelectorAll('#reels .reel'));
+    const empty = document.querySelector('.reels-empty');
+    const shownEl = document.querySelector('[data-shown]');
+    const moreBtn = document.querySelector('[data-show-more]');
+    const moreLabel = document.querySelector('[data-show-more-label]');
+
+    let activeFilter = 'all';
+    let expanded = false;
+
+    /* Counts per category — drives the chip badges */
+    const counts = {all:reels.length,beauty:0,food:0,fashion:0,events:0,apps:0};
+    reels.forEach(r => { const k = r.dataset.cat; if (k && counts[k] !== undefined) counts[k]++; });
+    document.querySelector('[data-count-all]').textContent = counts.all;
+    ['beauty','food','fashion','events','apps'].forEach(k => {
+      const el = document.querySelector('[data-count-'+k+']');
+      if (el) el.textContent = counts[k];
+    });
+
+    function applyState(){
+      let totalMatching = 0;
+      let visibleCount = 0;
+      reels.forEach(r => {
+        const matches = activeFilter === 'all' || r.dataset.cat === activeFilter;
+        if (!matches){ r.classList.add('is-hidden'); return; }
+        totalMatching++;
+        if (expanded || visibleCount < REELS_LIMIT){
+          r.classList.remove('is-hidden');
+          visibleCount++;
+        } else {
+          r.classList.add('is-hidden');
+        }
+      });
+
+      shownEl.textContent = visibleCount;
+      empty.hidden = totalMatching !== 0;
+
+      if (totalMatching <= REELS_LIMIT){
+        moreBtn.hidden = true;
+        moreBtn.classList.remove('is-expanded');
+      } else {
+        moreBtn.hidden = false;
+        moreBtn.classList.toggle('is-expanded', expanded);
+        moreLabel.textContent = expanded
+          ? 'Show fewer'
+          : 'Show more';
+      }
+    }
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => { c.classList.remove('is-active'); c.setAttribute('aria-selected','false'); });
+        chip.classList.add('is-active');
+        chip.setAttribute('aria-selected','true');
+        activeFilter = chip.dataset.filter;
+        expanded = false;  /* reset collapse state on filter change */
+        applyState();
+      });
+    });
+
+    moreBtn.addEventListener('click', () => {
+      expanded = !expanded;
+      applyState();
+      if (!expanded){
+        document.getElementById('clients').scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    });
+
+    // Recompute limit on viewport breakpoint change and reapply
+    window.matchMedia('(max-width:860px)').addEventListener('change', (e) => {
+      REELS_LIMIT = e.matches ? 6 : 15;
+      applyState();
+    });
+
+    applyState();
+  })();
+
+  /* Testimonial marquee — clone the cards once for seamless loop */
+  (function(){
+    const track = document.querySelector('[data-marquee-track]');
+    if (!track) return;
+    const cards = Array.from(track.children);
+    cards.forEach(c => {
+      const dup = c.cloneNode(true);
+      dup.setAttribute('aria-hidden','true');
+      track.appendChild(dup);
+    });
+  })();
+
+  /* Hero reel columns — clone for seamless vertical scroll */
+  (function(){
+    document.querySelectorAll('[data-hero-track]').forEach(col => {
+      const reels = Array.from(col.children);
+      reels.forEach(r => {
+        const dup = r.cloneNode(true);
+        dup.setAttribute('aria-hidden','true');
+        col.appendChild(dup);
+      });
+    });
+  })();
+
+  /* Scroll-triggered reveal — adds .is-visible to [data-reveal] elements */
+  (function(){
+    const reveals = document.querySelectorAll('[data-reveal]');
+    if (!reveals.length) return;
+    if (!('IntersectionObserver' in window)){
+      reveals.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(el => obs.observe(el));
+  })();
+</script>
+
+</body>
+</html>

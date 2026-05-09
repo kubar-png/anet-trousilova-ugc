@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>V5 — Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap&subset=latin,latin-ext" rel="stylesheet" />
+<style>
+  :root{--cream:#f4f1e8;--ink:#191919;--copper:#bd8f53;--rust:#9b4819;--mute:#7a766c;--line:rgba(25,25,25,0.14)}
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;background:var(--cream);color:var(--ink);font-family:'JetBrains Mono',ui-monospace,monospace;-webkit-font-smoothing:antialiased;font-size:13px;line-height:1.55}
+  a{color:inherit;text-decoration:none}
+
+  /* grid background */
+  body{
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: -1px -1px;
+  }
+
+  .wrap{max-width:1240px;margin:0 auto;padding:32px 40px 80px;background:var(--cream);border-left:1px solid var(--line);border-right:1px solid var(--line)}
+
+  /* status bar */
+  .statbar{
+    display:grid;grid-template-columns:1fr auto auto auto;gap:24px;align-items:center;
+    padding:10px 16px;background:var(--ink);color:var(--cream);
+    font-size:11px;letter-spacing:0.04em;
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:#7ec97a;display:inline-block;margin-right:8px;box-shadow:0 0 12px #7ec97a;animation:p 1.6s ease-in-out infinite}
+  @keyframes p{50%{opacity:0.4}}
+  .statbar .x{color:var(--mute)}
+  .statbar b{color:var(--copper);font-weight:500}
+  .statbar a:hover{color:var(--copper)}
+
+  /* header / title */
+  .titlerow{display:grid;grid-template-columns:1fr auto;align-items:end;padding:48px 16px 18px;border-bottom:1px solid var(--line)}
+  .slug{font-size:12px;color:var(--mute);margin-bottom:8px}
+  .slug b{color:var(--rust);font-weight:500}
+  h1{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+    font-size:clamp(48px,7vw,108px);
+    line-height:0.96;letter-spacing:-0.025em;
+    margin:0;
+    font-variation-settings:"opsz" 144;
+  }
+  h1 .reg{font-style:normal;color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:0.42em;letter-spacing:0;font-weight:500;display:block;margin-top:18px;line-height:1.3}
+  h1 .reg span{color:var(--rust)}
+  .titlerow .right{
+    text-align:right;font-size:11px;color:var(--mute);letter-spacing:0.02em;
+  }
+  .titlerow .right b{display:block;color:var(--ink);font-size:13px;font-weight:500;margin-top:2px}
+
+  /* main 12-col grid */
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(60px,auto);gap:0;border-bottom:1px solid var(--line)}
+  .cell{padding:18px 16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative}
+  .cell:nth-child(odd){background:rgba(189,143,83,0.03)}
+  .cell .k{font-size:10px;color:var(--mute);letter-spacing:0.06em;margin-bottom:8px;text-transform:lowercase}
+  .cell .v{font-size:13px}
+  .cell .v b{color:var(--rust);font-weight:500}
+  .cell.em{background:var(--ink);color:var(--cream)}
+  .cell.em .k{color:var(--copper)}
+  .cell.em .v{color:var(--cream)}
+
+  /* span helpers */
+  .c2{grid-column:span 2}.c3{grid-column:span 3}.c4{grid-column:span 4}.c5{grid-column:span 5}.c6{grid-column:span 6}.c7{grid-column:span 7}.c8{grid-column:span 8}.c12{grid-column:span 12}
+  .r2{grid-row:span 2}.r3{grid-row:span 3}
+
+  /* ASCII portrait */
+  .ascii{
+    font-size:10px;line-height:1.05;color:var(--rust);white-space:pre;font-weight:500;
+    background:var(--cream);
+    padding:10px 0;
+  }
+
+  /* manifest cell */
+  .manifest{
+    background:var(--ink);color:var(--cream);font-size:14px;line-height:1.7;
+    font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+    padding:32px 28px;letter-spacing:-0.005em;
+  }
+  .manifest b{color:var(--copper);font-style:normal;font-weight:500;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.04em}
+  .manifest .l{display:block}
+
+  /* clients table */
+  .clients{padding:0}
+  .clients table{width:100%;border-collapse:collapse;font-size:12px}
+  .clients th{text-align:left;padding:10px 16px;background:var(--ink);color:var(--copper);font-weight:500;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;border-right:1px solid rgba(244,241,232,0.12)}
+  .clients td{padding:10px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  .clients td:first-child{color:var(--mute);width:60px}
+  .clients td:nth-child(2){font-weight:500}
+  .clients td:nth-child(3){color:var(--mute);text-transform:lowercase}
+  .clients tr:hover{background:rgba(189,143,83,0.08)}
+  .clients tr:hover td:nth-child(2){color:var(--rust)}
+
+  /* cta */
+  .cta{
+    display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;
+    padding:36px 24px;background:var(--ink);color:var(--cream);margin-top:0;
+  }
+  .cta .h{
+    font-family:'Fraunces',serif;font-style:italic;font-size:34px;font-weight:400;letter-spacing:-0.015em;line-height:1.2;
+  }
+  .cta .h em{color:var(--copper)}
+  .cta .sub{font-size:12px;color:var(--mute);margin-top:8px}
+  .btn{
+    background:var(--copper);color:var(--ink);padding:18px 26px;
+    font-size:12px;letter-spacing:0.04em;font-weight:500;
+    display:inline-flex;align-items:center;gap:14px;transition:all .2s;
+  }
+  .btn:hover{background:var(--cream)}
+  .btn .arr{font-family:'Fraunces',serif;font-style:italic;font-size:18px}
+  .btn-ghost{background:transparent;color:var(--cream);border:1px solid rgba(244,241,232,0.3)}
+  .btn-ghost:hover{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+
+  .hairline{height:1px;background:var(--line)}
+  /* category cells with bars */
+  .cat-bar{margin-top:8px;height:6px;background:rgba(155,72,25,0.12);border-radius:0;position:relative;overflow:hidden}
+  .cat-bar > span{position:absolute;inset:0;background:var(--rust);width:var(--w,40%)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="statbar">
+    <div><span class="dot"></span> <b>OPEN</b> · briefy · <span class="x">léto 2026 · 4 sloty</span></div>
+    <div class="x">odpověď do <b>48 h</b></div>
+    <div class="x">CZ ·&nbsp;<a href="#">EN</a></div>
+    <div class="x"><a href="mailto:anetatrousilovaugc@gmail.com">→ napsat</a></div>
+  </div>
+
+  <div class="titlerow">
+    <div>
+      <div class="slug">trousilova_aneta / index · <b>v.04</b> · poslední aktualizace 2026‑05‑09</div>
+      <h1>Anet <em>Trousilová</em><span class="reg">// UGC studio · Praha · <span>od 2022</span></span></h1>
+    </div>
+    <div class="right">
+      <div>currently working with</div>
+      <b>Bübchen · Mixa · Costa</b>
+    </div>
+  </div>
+
+  <div class="grid">
+    <!-- ascii portrait -->
+    <div class="cell c4 r3" style="padding:0">
+      <div style="padding:18px 16px 8px;border-bottom:1px solid var(--line)">
+        <div class="k">// portrait.txt</div>
+      </div>
+      <pre class="ascii">           ░░▒▒▓▓██▓▓▒░░
+        ▒▓██████████████▓▒
+      ▓████░░          ░░████▓
+     ▓███                  ███▓
+    ▒██░     ▄▄    ▄▄      ░██▒
+    ██     ░██░   ░██░       ██
+    ██      ▀▀     ▀▀         ██
+    ██░         ▽▽            ██
+     ██▒                     ▒██
+      ███     ╲_______╱      ███
+       ████░             ░████
+         ██████████████████
+       ░██▒              ▒██░
+      ▓██░    Anet · '25   ░██▓
+     ▓██                       ██▓</pre>
+      <div style="padding:10px 16px;border-top:1px solid var(--line);font-size:10px;color:var(--mute);display:flex;justify-content:space-between">
+        <span>res: 32x16 · ascii</span><span>// placeholder for real foto</span>
+      </div>
+    </div>
+
+    <!-- manifest -->
+    <div class="cell c8 manifest">
+      <div class="k" style="color:var(--copper);margin-bottom:14px">// manifest.md</div>
+      <span class="l">Točím <b>UGC</b> pro značky, které sama používám.</span>
+      <span class="l">Beauty, péče, kafe, občas appka. Bez stockových úsměvů,</span>
+      <span class="l">bez sales voice, bez fake nadšení. Když mi produkt</span>
+      <span class="l">nesedí, řeknu to dřív, než pošleš zálohu.</span>
+      <span class="l" style="margin-top:14px;display:block">— Anet</span>
+    </div>
+
+    <div class="cell c2"><div class="k">// based</div><div class="v"><b>Praha</b>, CZ</div></div>
+    <div class="cell c2"><div class="k">// since</div><div class="v"><b>2022</b></div></div>
+    <div class="cell c2"><div class="k">// brandů</div><div class="v"><b>35+</b></div></div>
+    <div class="cell c2"><div class="k">// jazyky</div><div class="v"><b>CZ</b>·EN</div></div>
+
+    <div class="cell c2"><div class="k">// kapacita</div><div class="v"><b>léto '26</b></div></div>
+    <div class="cell c2"><div class="k">// odpověď</div><div class="v"><b>48 h</b></div></div>
+    <div class="cell c2"><div class="k">// formát</div><div class="v">Reels · Stories · UGC</div></div>
+    <div class="cell c2"><div class="k">// sazba</div><div class="v">na vyžádání</div></div>
+
+    <!-- categories with usage bars -->
+    <div class="cell c12" style="background:var(--ink);color:var(--cream);padding:16px 24px">
+      <div class="k" style="color:var(--copper);margin-bottom:16px">// what i shoot · 2022—2026</div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:24px">
+        <div>
+          <div style="font-family:'Fraunces',serif;font-style:italic;font-size:22px;color:var(--cream)">Beauty</div>
+          <div style="font-size:10px;color:var(--mute);margin-top:4px">Garnier · Mixa · Bübchen · Venira · Havlíkova Apotéka</div>
+          <div class="cat-bar"><span style="--w:92%"></span></div>
+        </div>
+        <div>
+          <div style="font-family:'Fraunces',serif;font-style:italic;font-size:22px;color:var(--cream)">Food</div>
+          <div style="font-size:10px;color:var(--mute);margin-top:4px">Costa · Wolt · UGO · Šufan · Powerlogy</div>
+          <div class="cat-bar"><span style="--w:78%"></span></div>
+        </div>
+        <div>
+          <div style="font-family:'Fraunces',serif;font-style:italic;font-size:22px;color:var(--cream)">Fashion</div>
+          <div style="font-size:10px;color:var(--mute);margin-top:4px">Sellpy · Snuggs · Skinners · Triby</div>
+          <div class="cat-bar"><span style="--w:54%"></span></div>
+        </div>
+        <div>
+          <div style="font-family:'Fraunces',serif;font-style:italic;font-size:22px;color:var(--cream)">Events &amp; Stores</div>
+          <div style="font-size:10px;color:var(--mute);margin-top:4px">OC Nový Smíchov · Máj · Orea Hotels</div>
+          <div class="cat-bar"><span style="--w:42%"></span></div>
+        </div>
+        <div>
+          <div style="font-family:'Fraunces',serif;font-style:italic;font-size:22px;color:var(--cream)">Apps</div>
+          <div style="font-size:10px;color:var(--mute);margin-top:4px">mBank · Rekola · Next Bike · Levels</div>
+          <div class="cat-bar"><span style="--w:38%"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- clients table -->
+    <div class="cell c12 clients" style="padding:0">
+      <table>
+        <thead>
+          <tr><th>// year</th><th>// brand</th><th>// type</th><th>// category</th><th style="text-align:right;border-right:0">// link</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2025</td><td>Bübchen</td><td>reels kampaň</td><td>beauty</td><td style="text-align:right">→</td></tr>
+          <tr><td>2025</td><td>Garnier</td><td>vlasová série, 4 videa</td><td>beauty</td><td style="text-align:right">→</td></tr>
+          <tr><td>2024</td><td>Costa Coffee</td><td>sezónní limitka</td><td>food</td><td style="text-align:right">→</td></tr>
+          <tr><td>2024</td><td>Wolt</td><td>UGC série, relaunch</td><td>food / app</td><td style="text-align:right">→</td></tr>
+          <tr><td>2024</td><td>Havlíkova Apotéka</td><td>longform · příběh značky</td><td>beauty</td><td style="text-align:right">→</td></tr>
+          <tr><td>2023</td><td>mBank</td><td>onboarding, 6 videí</td><td>app</td><td style="text-align:right">→</td></tr>
+          <tr><td>2023</td><td>Powerlogy</td><td>ranní rituál série</td><td>food</td><td style="text-align:right">→</td></tr>
+          <tr><td>2023</td><td>Orea Hotels</td><td>travel UGC, 3 destinace</td><td>events</td><td style="text-align:right">→</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div>
+      <div class="h">Pošli <em>brief</em>. Odepíšu do dvou&nbsp;dní.</div>
+      <div class="sub">// Stručně: značka · produkt · deadline · formát. Sazba a dostupnost obratem.</div>
+    </div>
+    <div style="display:flex;gap:10px">
+      <a class="btn" href="mailto:anetatrousilovaugc@gmail.com">napsat brief <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="#">media kit (pdf)</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

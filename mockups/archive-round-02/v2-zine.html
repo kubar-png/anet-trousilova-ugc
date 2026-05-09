@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>V2 — Zine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400;1,6..96,500&display=swap&subset=latin,latin-ext" rel="stylesheet" />
+<style>
+  :root{--cream:#f4f1e8;--ink:#191919;--copper:#bd8f53;--rust:#9b4819;--paper:#fffaf0}
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;background:var(--cream);color:var(--ink);font-family:'Schibsted Grotesk',sans-serif;-webkit-font-smoothing:antialiased}
+  body{
+    background-color:var(--cream);
+    background-image:
+      radial-gradient(circle at 20% 0%, rgba(189,143,83,0.16), transparent 45%),
+      radial-gradient(circle at 80% 100%, rgba(155,72,25,0.12), transparent 45%);
+    min-height:100vh;
+  }
+  a{color:inherit;text-decoration:none}
+
+  /* zine page padding */
+  .page{max-width:1300px;margin:0 auto;padding:28px 36px 80px;position:relative}
+
+  /* corner stamp */
+  .stamp{
+    position:absolute;top:28px;right:36px;
+    width:128px;height:128px;border-radius:50%;
+    background:var(--rust);color:var(--cream);
+    display:grid;place-items:center;text-align:center;
+    transform:rotate(8deg);
+    box-shadow:6px 8px 0 var(--ink);
+    z-index:5;
+  }
+  .stamp .big{font-family:'Caprasimo',serif;font-size:28px;line-height:1;display:block;margin-bottom:4px}
+  .stamp small{font-family:'Schibsted Grotesk';font-size:9px;letter-spacing:0.18em;text-transform:uppercase;display:block}
+
+  /* nav scrap */
+  nav{display:flex;justify-content:space-between;align-items:center;padding-bottom:24px}
+  .mark{font-family:'Caprasimo',serif;font-size:30px;color:var(--rust);letter-spacing:-0.02em}
+  .mark::after{content:"♥";color:var(--copper);font-family:serif;font-size:18px;margin-left:6px;vertical-align:0.2em}
+  .menu{display:flex;gap:20px;font-size:14px;font-weight:500}
+  .menu a{padding:6px 12px;border-radius:99px;border:1.5px solid transparent;transition:all .2s}
+  .menu a:hover{border-color:var(--ink);background:var(--cream)}
+  .menu a.act{background:var(--ink);color:var(--cream)}
+  .lang{font-family:'Bodoni Moda',serif;font-style:italic;font-size:14px}
+  .lang b{color:var(--rust)}
+
+  /* HERO */
+  .hero{position:relative;padding-top:30px}
+  .greeting{
+    display:inline-block;
+    font-family:'Bodoni Moda',serif;font-style:italic;font-weight:400;
+    font-size:32px;color:var(--rust);
+    background:var(--cream);
+    padding:6px 18px;
+    border:2px solid var(--ink);border-radius:50px;
+    transform:rotate(-3deg);
+    box-shadow:4px 4px 0 var(--copper);
+    margin-bottom:20px;
+  }
+  h1{
+    font-family:'Caprasimo',serif;font-weight:400;
+    font-size:clamp(96px,16vw,232px);
+    line-height:0.86;letter-spacing:-0.03em;
+    margin:0 0 20px;color:var(--ink);
+  }
+  h1 .o{display:inline-block;background:var(--rust);color:var(--cream);width:0.78em;height:0.78em;border-radius:50%;line-height:0.78em;text-align:center;font-size:0.85em;vertical-align:0.05em;margin:0 0.02em}
+  h1 small{display:block;font-family:'Bodoni Moda',serif;font-style:italic;font-weight:400;font-size:0.18em;letter-spacing:0;color:var(--ink);margin-top:14px;line-height:1.2}
+  h1 small em{color:var(--rust)}
+
+  .deck{
+    display:grid;grid-template-columns:1.4fr 1fr;gap:60px;align-items:start;margin-top:60px;
+  }
+
+  /* photo cards stack */
+  .cards{position:relative;height:560px}
+  .pcard{
+    position:absolute;
+    width:280px;height:360px;
+    background:var(--paper);
+    padding:14px 14px 50px;
+    box-shadow:0 14px 30px -14px rgba(25,25,25,0.35);
+    border:1px solid rgba(25,25,25,0.06);
+  }
+  .pcard .ph{
+    width:100%;height:100%;
+    border-radius:2px;
+    background:linear-gradient(160deg,#e6cca5,#bd8f53 55%,#9b4819);
+  }
+  .pcard .lab{
+    font-family:'Bodoni Moda',serif;font-style:italic;font-size:14px;
+    margin-top:10px;color:var(--ink);
+  }
+  .pcard .lab small{display:block;font-family:'Schibsted Grotesk';font-style:normal;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--rust);margin-top:2px}
+  .pcard.a{top:0;left:0;transform:rotate(-6deg);background:var(--paper)}
+  .pcard.b{top:60px;left:160px;transform:rotate(4deg);background:var(--cream);z-index:2}
+  .pcard.b .ph{background:linear-gradient(160deg,#d8c4a3,#9b4819)}
+  .pcard.c{top:200px;left:60px;transform:rotate(-2deg);background:#ede9dc;z-index:1}
+  .pcard.c .ph{background:linear-gradient(160deg,#bd8f53,#3a2a1a)}
+  /* tape */
+  .pcard::before{
+    content:"";position:absolute;top:-12px;left:50%;transform:translateX(-50%) rotate(-2deg);
+    width:80px;height:22px;background:rgba(189,143,83,0.55);
+    box-shadow:inset 0 0 12px rgba(155,72,25,0.2);
+  }
+
+  /* body */
+  .deck-text .lede{
+    font-size:19px;line-height:1.55;color:#28251f;max-width:46ch;margin:0 0 24px
+  }
+  .deck-text .lede em{font-family:'Bodoni Moda',serif;font-style:italic;font-size:21px;color:var(--rust)}
+  .deck-text .lede b{font-weight:600}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
+  .tag{
+    padding:6px 14px;border-radius:99px;border:1.5px solid var(--ink);
+    font-size:13px;font-weight:500;
+    background:var(--cream);
+  }
+  .tag::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--copper);margin-right:8px;vertical-align:middle}
+  .tag:nth-child(2)::before{background:var(--rust)}
+  .tag:nth-child(3)::before{background:var(--ink)}
+  .tag:nth-child(4)::before{background:#3a5230}
+  .tag:nth-child(5)::before{background:#604070}
+  .ctas{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .btn{
+    padding:14px 22px;border:2px solid var(--ink);background:var(--ink);color:var(--cream);
+    border-radius:99px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:8px;
+    box-shadow:4px 4px 0 var(--copper);transition:transform .15s, box-shadow .15s;
+  }
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--copper)}
+  .btn.ghost{background:var(--cream);color:var(--ink);box-shadow:4px 4px 0 var(--rust)}
+  .btn.ghost:hover{box-shadow:6px 6px 0 var(--rust)}
+
+  /* note scrap */
+  .note{
+    margin-top:28px;
+    background:var(--paper);
+    padding:14px 18px;border:1px solid rgba(25,25,25,0.1);
+    transform:rotate(-1.5deg);
+    font-family:'Bodoni Moda',serif;font-style:italic;font-size:15px;
+    max-width:340px;
+    box-shadow:6px 6px 0 rgba(25,25,25,0.08);
+  }
+  .note::before{content:"P. S.";font-family:'Schibsted Grotesk';font-style:normal;font-weight:700;color:var(--rust);margin-right:8px;letter-spacing:0.04em}
+
+  /* clients ribbon */
+  .ribbon{
+    margin-top:80px;background:var(--ink);color:var(--cream);
+    padding:18px 0;overflow:hidden;
+    transform:rotate(-1deg);box-shadow:0 16px 30px -20px rgba(25,25,25,0.4);
+  }
+  .ribbon-row{display:flex;gap:48px;animation:m 35s linear infinite;width:max-content;font-family:'Caprasimo',serif;font-size:30px;letter-spacing:-0.01em}
+  .ribbon-row span::after{content:"♥";color:var(--copper);margin-left:48px;font-family:serif;font-size:20px;vertical-align:0.18em}
+  @keyframes m{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="stamp">
+    <div><span class="big">35+</span><small>Brandů na účtě</small></div>
+  </div>
+
+  <nav>
+    <div class="mark">anet</div>
+    <div class="menu">
+      <a class="act" href="#">domů</a>
+      <a href="#">moje práce</a>
+      <a href="#">starter pack</a>
+      <a href="#">napiš mi</a>
+    </div>
+    <div class="lang"><b>cz</b> · en</div>
+  </nav>
+
+  <section class="hero">
+    <div class="greeting">ahoj :) jsem</div>
+    <h1>An<span class="o">e</span>t<small>UGC creatorka, <em>Praha</em> — od&nbsp;2022</small></h1>
+
+    <div class="deck">
+      <div class="cards">
+        <div class="pcard a"><div class="ph"></div><div class="lab">Bübchen<small>Beauty · 2025</small></div></div>
+        <div class="pcard c"><div class="ph"></div><div class="lab">Wolt<small>Food · 2024</small></div></div>
+        <div class="pcard b"><div class="ph"></div><div class="lab">Costa Coffee<small>Food · 2024</small></div></div>
+      </div>
+
+      <div class="deck-text">
+        <p class="lede">
+          Točím UGC videa pro brandy, jejichž produkty <em>fakt používám</em>.
+          Beauty a péči o pleť dělám nejradši, k tomu kafe, móda a občas appky.
+          <b>Žádné stockové úsměvy, žádný sales voice.</b>
+        </p>
+        <div class="tags">
+          <span class="tag">Beauty</span>
+          <span class="tag">Food</span>
+          <span class="tag">Fashion</span>
+          <span class="tag">Events &amp; Stores</span>
+          <span class="tag">Apps</span>
+        </div>
+        <div class="ctas">
+          <a class="btn" href="mailto:anetatrousilovaugc@gmail.com">napiš mi brief</a>
+          <a class="btn ghost" href="#">media kit (pdf)</a>
+        </div>
+
+        <div class="note">
+          Aktuálně otevřená pro briefy na&nbsp;<b style="color:var(--rust);font-style:normal;font-family:'Schibsted Grotesk';font-weight:700">léto 2026</b>. Odepisuju do&nbsp;dvou&nbsp;dní, slibuju.
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="ribbon">
+  <div class="ribbon-row">
+    <span>Costa Coffee</span><span>Garnier</span><span>Mixa</span><span>Bübchen</span>
+    <span>Wolt</span><span>Snuggs</span><span>Powerlogy</span><span>mBank</span>
+    <span>Havlíkova Apotéka</span><span>Sellpy</span><span>Venira</span><span>Orea Hotels</span>
+    <span>Costa Coffee</span><span>Garnier</span><span>Mixa</span><span>Bübchen</span>
+    <span>Wolt</span><span>Snuggs</span><span>Powerlogy</span><span>mBank</span>
+    <span>Havlíkova Apotéka</span><span>Sellpy</span><span>Venira</span><span>Orea Hotels</span>
+  </div>
+</div>
+
+</body>
+</html>
