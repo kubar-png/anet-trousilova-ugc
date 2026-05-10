@@ -745,66 +745,70 @@
   .cta{
     padding:calc(var(--sec-y) * 1.4) var(--pad-x) var(--sec-y);
     text-align:center;position:relative;overflow:hidden;
+    background:var(--terra-3);color:var(--cream);
   }
-  /* subtle brick spotlight behind the CTA — matches hero spotlight pattern */
+  /* deeper-brick radial wash for depth on the orange background */
   .cta-spotlight{
     position:absolute;top:50%;left:50%;
     width:min(900px,86vw);height:min(560px,52vh);
     transform:translate(-50%,-50%);
-    background:radial-gradient(ellipse at 50% 50%, rgba(155,72,25,0.18) 0, rgba(155,72,25,0.07) 36%, transparent 72%);
+    background:radial-gradient(ellipse at 50% 50%, rgba(110,47,14,0.55) 0, rgba(110,47,14,0.20) 38%, transparent 72%);
     filter:blur(3px);
     pointer-events:none;z-index:0;
   }
 
   .cta-inner{position:relative;z-index:1;max-width:680px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
 
-  /* eyebrow with hairline rules — anchors the section */
+  /* eyebrow on orange — cream + warm-gold rule */
   .cta-eyebrow{
     display:inline-flex;align-items:center;gap:14px;
     font-family:var(--mono);font-size:11px;letter-spacing:0.32em;text-transform:uppercase;
-    color:var(--rust);font-weight:500;margin-bottom:28px;
+    color:var(--terra-1);font-weight:500;margin-bottom:28px;
   }
   .cta-eyebrow .rule{display:block;width:36px;height:1px;background:currentColor;opacity:.7}
 
-  /* display headline — big, italic emphasis on collaboration */
+  /* display headline — large italic on orange, cream body + sand accent */
   .cta h2{
     font-family:var(--serif);font-weight:500;font-size:clamp(34px,4.4vw,60px);
     line-height:1.1;letter-spacing:-0.022em;margin:0 0 36px;
     font-variation-settings:"opsz" 96;
     max-width:18ch;text-wrap:balance;
+    color:var(--cream);
   }
-  .cta h2 em{font-style:italic;color:var(--rust);font-weight:600}
+  .cta h2 em{font-style:italic;color:var(--terra-1);font-weight:600}
 
-  /* primary CTA — single, well-padded button (44px+ touch target, focus visible) */
+  /* primary CTA — cream button on orange so it pops */
   .cta .cta-btn{
     padding:18px 36px;font-size:13.5px;letter-spacing:0.06em;
     margin-bottom:32px;
+    background:var(--cream);color:var(--terra-4);border-color:var(--cream);
   }
+  .cta .cta-btn:hover{background:var(--terra-1);color:var(--terra-4);border-color:var(--terra-1);transform:translateY(-2px)}
 
-  /* email — secondary, clickable, big serif italic with underline */
+  /* email — secondary, large serif italic with cream underline */
   .cta-email{
     display:inline-block;
     font-family:var(--serif);font-style:italic;font-weight:400;
     font-size:clamp(17px,1.6vw,22px);
-    color:var(--ink);letter-spacing:-0.005em;
-    border-bottom:1px solid var(--hair-strong);
+    color:var(--cream);letter-spacing:-0.005em;
+    border-bottom:1px solid rgba(244,241,232,0.4);
     padding:1px 0 3px;margin-bottom:28px;
     transition:color .25s ease,border-color .25s ease;
   }
-  .cta-email:hover,.cta-email:focus-visible{color:var(--rust);border-color:var(--rust)}
+  .cta-email:hover,.cta-email:focus-visible{color:var(--terra-1);border-color:var(--terra-1)}
 
-  /* social row — tertiary, mono text-style links */
+  /* social row — tertiary, light cream-tinted */
   .cta-social{
     display:inline-flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;
     font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
-    color:var(--mute);font-weight:500;
+    color:rgba(244,241,232,0.7);font-weight:500;
   }
   .cta-social a{
     color:inherit;border-bottom:1px solid transparent;padding-bottom:2px;
     transition:color .2s ease,border-color .2s ease;
   }
-  .cta-social a:hover,.cta-social a:focus-visible{color:var(--rust);border-color:var(--rust)}
-  .cta-social .sep{color:var(--terra-2);opacity:.55}
+  .cta-social a:hover,.cta-social a:focus-visible{color:var(--terra-1);border-color:var(--terra-1)}
+  .cta-social .sep{color:var(--terra-1);opacity:.5}
 
   /* ======================================================================
      SECTION 7 — social media row
