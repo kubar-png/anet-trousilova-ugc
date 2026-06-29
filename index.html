@@ -195,20 +195,6 @@
     top:auto;bottom:-30%;left:-15%;right:auto;width:50%;height:60%;
     background:radial-gradient(closest-side, rgba(155,72,25,0.10), transparent 70%);
   }
-  .hero-top{
-    display:flex;justify-content:space-between;align-items:center;
-    font-family:var(--mono);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mute);
-    position:relative;z-index:1;
-  }
-  .hero-top .pulse{display:inline-flex;align-items:center;gap:10px;color:var(--ink)}
-  .hero-top .pulse::before{
-    content:"";width:8px;height:8px;border-radius:50%;
-    background:#69a866;box-shadow:0 0 12px #69a866;
-    animation:pulse 1.8s ease-in-out infinite;
-  }
-  @keyframes pulse{50%{opacity:0.45;transform:scale(0.85)}}
-  .hero-top .pulse b{color:var(--rust);font-weight:500}
-
   .hero-main{
     display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:56px;
     align-items:center;
@@ -985,11 +971,6 @@
 <section class="hero" id="top">
   <div class="glow"></div>
   <div class="glow b"></div>
-
-  <div class="hero-top">
-    <div class="pulse"><span data-i18n="hero.pulse">UGC Creator</span></div>
-    <div><a href="https://www.instagram.com/trousilova_aneta/">@trousilova_aneta</a></div>
-  </div>
 
   <div class="hero-spotlight" aria-hidden="true"></div>
 
@@ -1804,7 +1785,6 @@
       'hero.tagline': 'Costa, Garnier, Mixa, Wolt, mBank a dalších třicet značek. Reels a videa, na kterých váš produkt <em>zazáří přirozeně.</em>',
       'hero.cta-primary': 'Pošlete mi brief <span class="arr">→</span>',
       'hero.cta-secondary': 'Prohlédnout reels',
-      'hero.pulse': 'UGC tvůrkyně',
       'about.eyebrow': 'Pár slov o mně',
       'about.h2': 'Nemůžu projít kolem produktu, <em>aniž</em> <span class="copper">bych ho točila.</span>',
       'about.bio-1': 'Jmenuju se Aneta a mám jeden problém: nemůžu projít kolem produktu, abych ho hned nechtěla natočit. Tvořím <b>UGC obsah</b>, který působí jako doporučení od kamarádky a přitom z vašeho produktu vytáhne to nejlepší.',
