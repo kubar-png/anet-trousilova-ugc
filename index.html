@@ -4,7 +4,29 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="robots" content="noindex,nofollow" />
-<title>Anet Trousilová — UGC Creator · Praha</title>
+<title>Aneta Trousilová - UGC creator pro 35+ značek</title>
+<meta name="description" content="UGC, které vypadá jako doporučení od kamarádky. Costa, Garnier, Mixa, Wolt, mBank a dalších třicet značek." />
+
+<!-- Open Graph (iMessage, Facebook, LinkedIn, Slack) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Aneta Trousilová" />
+<meta property="og:title" content="Aneta Trousilová · UGC tvůrkyně" />
+<meta property="og:description" content="UGC, které vypadá jako doporučení od kamarádky. Costa, Garnier, Mixa, Wolt, mBank a dalších třicet značek." />
+<meta property="og:url" content="https://anet-trousilova-ugc.vercel.app/" />
+<meta property="og:image" content="https://anet-trousilova-ugc.vercel.app/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Aneta Trousilová - UGC tvůrkyně, 35+ značek" />
+<meta property="og:locale" content="cs_CZ" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Aneta Trousilová · UGC tvůrkyně" />
+<meta name="twitter:description" content="UGC, které vypadá jako doporučení od kamarádky. 35+ značek." />
+<meta name="twitter:image" content="https://anet-trousilova-ugc.vercel.app/og-image.png" />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap&subset=latin,latin-ext" rel="stylesheet" />
@@ -14,15 +36,15 @@
      ====================================================================== */
   :root{
     /* ────────── Surfaces (warm cream scale) ────────── */
-    --surface-0:#faf6ec;          /* lightest paper — cards */
-    --surface-1:#f4f1e8;          /* default cream — body bg (her hex) */
-    --surface-2:#ebe5d3;          /* deeper cream — section variation */
-    --surface-3:#ddd4ba;          /* deepest cream — dividers */
+    --surface-0:#faf6ec;          /* lightest paper - cards */
+    --surface-1:#f4f1e8;          /* default cream - body bg (her hex) */
+    --surface-2:#ebe5d3;          /* deeper cream - section variation */
+    --surface-3:#ddd4ba;          /* deepest cream - dividers */
 
     /* ────────── Surfaces (dark, warm) ────────── */
     --surface-dark-1:#2a261f;     /* warm charcoal */
-    --surface-dark-2:#1a3326;     /* deep moss — feature dark sections */
-    --surface-dark-3:#14110c;     /* deepest — footer */
+    --surface-dark-2:#1a3326;     /* deep moss - feature dark sections */
+    --surface-dark-3:#14110c;     /* deepest - footer */
 
     /* ────────── Text scale (warm neutrals) ────────── */
     --text-1:#1a1814;             /* primary */
@@ -31,17 +53,17 @@
     --text-4:#b5ad9a;             /* faintest */
     --text-on-dark:#f4f1e8;
 
-    /* ────────── Accent — terra (warm, brick spectrum) ────────── */
-    --terra-1:#e8c89a;            /* sand — gradient highlight */
-    --terra-2:#c79a5e;            /* refined wheat — soft warm */
-    --terra-3:#9b4819;            /* her brick — primary CTA + emphasis */
-    --terra-4:#6e2f0e;            /* deepest — hover/pressed */
+    /* ────────── Accent - terra (warm, brick spectrum) ────────── */
+    --terra-1:#e8c89a;            /* sand - gradient highlight */
+    --terra-2:#c79a5e;            /* refined wheat - soft warm */
+    --terra-3:#9b4819;            /* her brick - primary CTA + emphasis */
+    --terra-4:#6e2f0e;            /* deepest - hover/pressed */
 
-    /* ────────── Accent — moss (cool, forest spectrum) ────────── */
-    --moss-1:#aebcae;             /* sage — light cool */
-    --moss-2:#6a7c6e;             /* mid sage — soft cool */
-    --moss-3:#284b3a;             /* her forest — secondary emphasis */
-    --moss-4:#1a3326;             /* deepest moss — bg */
+    /* ────────── Accent - moss (cool, forest spectrum) ────────── */
+    --moss-1:#aebcae;             /* sage - light cool */
+    --moss-2:#6a7c6e;             /* mid sage - soft cool */
+    --moss-3:#284b3a;             /* her forest - secondary emphasis */
+    --moss-4:#1a3326;             /* deepest moss - bg */
 
     /* ────────── Hairlines ────────── */
     --hair-soft:rgba(26,24,20,0.08);
@@ -110,8 +132,8 @@
     font-size:clamp(32px,4.2vw,56px);line-height:1;letter-spacing:-0.022em;
     margin:0;font-variation-settings:"opsz" 72;
   }
-  h2.section-h em{font-style:italic;color:var(--rust);font-weight:500}
-  h2.section-h .copper{color:var(--copper);font-style:italic;font-weight:400}
+  h2.section-h em{font-style:normal;color:var(--rust);font-weight:500}
+  h2.section-h .copper{color:var(--rust);font-style:normal;font-weight:500}
 
   .btn{
     display:inline-flex;align-items:center;gap:12px;
@@ -135,7 +157,7 @@
     position:fixed;top:0;left:0;right:0;z-index:50;
     display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
     padding:12px var(--pad-x);
-    background:rgba(244,241,232,0.82);backdrop-filter:blur(14px);
+    background:rgba(244,241,232,0.96);
     border-bottom:1px solid var(--hair);
   }
   .nav .logo{
@@ -157,7 +179,7 @@
   .nav .book:hover{background:var(--rust)}
 
   /* ======================================================================
-     SECTION 1 — HERO
+     SECTION 1 - HERO
      ====================================================================== */
   .hero{
     padding:104px var(--pad-x) 56px;
@@ -202,12 +224,10 @@
     font-variation-settings:"opsz" 96;
     color:var(--ink);
   }
-  h1.hero-title em{font-style:italic;color:var(--rust);font-weight:600}
+  h1.hero-title em{font-style:normal;color:var(--rust);font-weight:600}
   h1.hero-title .name{
-    font-style:italic;color:var(--copper);font-weight:600;
+    font-style:normal;color:var(--rust);font-weight:600;
     display:inline-block;
-    background:linear-gradient(180deg,var(--copper),var(--rust));
-    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
   }
   .hero-tagline{
     font-family:var(--sans);font-weight:400;
@@ -218,7 +238,7 @@
 
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:0}
 
-  /* CENTERED hero variant — full-viewport, side cards + spotlight, slide-in */
+  /* CENTERED hero variant - full-viewport, side cards + spotlight, slide-in */
   .hero{
     min-height:100vh;
     padding-top:128px;padding-bottom:80px;
@@ -246,14 +266,13 @@
   .hero-center-content .hero-tagline{margin-left:auto;margin-right:auto;max-width:46ch}
   .hero-center-content .hero-ctas{justify-content:center}
 
-  /* subtle brick spotlight glow — sibling of hero-grid, free of stacking constraints */
+  /* subtle brick spotlight glow - sibling of hero-grid, free of stacking constraints */
   .hero-spotlight{
     position:absolute;top:50%;left:50%;
     width:min(900px,86vw);height:min(560px,52vh);
     background:
       radial-gradient(ellipse at 50% 50%, rgba(155,72,25,0.20) 0, rgba(155,72,25,0.08) 36%, transparent 72%);
     pointer-events:none;z-index:1;     /* above .glow (z:0), below text (z:5) */
-    filter:blur(2px);
     opacity:0;
     transform:translate(-50%,-50%) scale(0.88);
     animation:spotFadeIn 1.6s cubic-bezier(0.22,1,0.36,1) 0.4s forwards;
@@ -263,17 +282,17 @@
     to{opacity:1;transform:translate(-50%,-50%) scale(1)}
   }
 
-  /* video cards in side columns — slide-in then float */
+  /* video cards in side columns - slide-in then float */
   .hbcard{
     position:absolute;
     aspect-ratio:9/16;border-radius:12px;overflow:hidden;
     background:radial-gradient(at 28% 22%, var(--g1,#efd9b4), var(--g2,#9b4819) 50%, var(--g3,#1a3326) 110%);
-    box-shadow:0 30px 60px -28px rgba(25,24,20,0.5);
-    /* initial state: rotated only — slide is via animation */
+    box-shadow:0 18px 30px -22px rgba(25,24,20,0.45);
+    /* initial state: rotated only - slide is via animation */
     transform:rotate(var(--r,0));
     cursor:pointer;
     transition:filter .35s ease;
-    /* slide-in (off-screen → home), then float — separated by start-times so transforms don't compete */
+    /* slide-in (off-screen → home), then float - separated by start-times so transforms don't compete */
     animation:
       hbSlideLeft 1.05s cubic-bezier(0.22,1,0.36,1) 0.20s both,
       hbfloat 7s ease-in-out 1.4s infinite;
@@ -336,13 +355,9 @@
   .hero-side-right .hbc-4{top:38%;right:-14%;width:178px;--r:7deg;animation-delay:.32s,2.8s}
   .hero-side-right .hbc-6{bottom:0;right:12%;width:192px;--r:-5deg;animation-delay:.40s,3.6s}
 
-  @media (max-width:1180px){
-    .hero-side-left .hbc-1,.hero-side-right .hbc-2{width:172px}
-    .hero-side-left .hbc-3,.hero-side-right .hbc-4{display:none}
-    .hero-side-left .hbc-5,.hero-side-right .hbc-6{width:160px}
-  }
+  /* tablet+mobile: 6-card desktop layout collapses to 3-cards-above-text (see @media (max-width:1180px) below) */
 
-  /* mobile fade-up — cards rise from below; opacity stays 1, cover handles the reveal */
+  /* mobile fade-up - cards rise from below; opacity stays 1, cover handles the reveal */
   @keyframes hbFadeUp{
     from{transform:translateY(56px) rotate(var(--r,0))}
     to{transform:translateY(0) rotate(var(--r,0))}
@@ -352,7 +367,7 @@
     to{opacity:0}
   }
 
-  /* solid brick cover — reveals card content on mobile only */
+  /* solid brick cover - reveals card content on mobile only */
   .hbcard .cover{
     position:absolute;inset:0;
     background:var(--rust);
@@ -362,7 +377,8 @@
     display:none;       /* hidden on desktop (slide-in already fades opacity) */
   }
 
-  @media (max-width:860px){
+  /* tablet + mobile: 3 cards stacked above center text, single column hero */
+  @media (max-width:1180px){
     .hero{
       min-height:100vh;
       padding-top:84px;padding-bottom:24px;
@@ -370,25 +386,25 @@
     }
     .hero-grid{
       grid-template-columns:1fr;
-      grid-template-rows:1fr 1fr;
-      gap:16px;min-height:auto;
+      grid-template-rows:auto 1fr;
+      gap:28px;min-height:auto;
     }
-    /* right column hidden — only left's 3 cards become the top row */
+    /* right column hidden - only left's 3 cards become the top row */
     .hero-side-right{display:none}
     .hero-side-left{
       position:static;height:auto;
-      display:flex;flex-direction:row;gap:0;     /* gap removed — overlap via negative margin */
+      display:flex;flex-direction:row;gap:0;     /* gap removed - overlap via negative margin */
       justify-content:center;align-items:center;
       padding:0 16px;
       pointer-events:auto;
     }
-    /* re-show hbc-3 (hidden at 1180px breakpoint) so we have 3 cards on mobile */
+    /* re-show hbc-3 (always shown in this breakpoint - we want 3 cards in row) */
     .hero-side-left .hbc-3{display:block}
     .hero-side-left .hbcard{
       position:static;
       animation-name:hbFadeUp,hbfloat;
     }
-    /* show the brick cover on mobile and animate it fading out, matching each card's slide delay */
+    /* show the brick cover and animate it fading out, matching each card's slide delay */
     .hero-side-left .hbcard .cover{
       display:block;
       animation:hbCoverFade 1.05s cubic-bezier(0.22,1,0.36,1) var(--cd,0.20s) both;
@@ -397,75 +413,46 @@
     .hero-side-left .hbc-3 .cover{--cd:0.28s}
     .hero-side-left .hbc-5 .cover{--cd:0.36s}
 
-    /* side cards smaller, behind */
+    /* tablet sizing: bigger cards but capped to keep proportions */
     .hero-side-left .hbc-1{
-      width:clamp(86px,23vw,118px);
-      --r:-7deg;z-index:1;margin-right:-14px;
+      width:clamp(120px,15vw,180px);
+      --r:-7deg;z-index:1;margin-right:-22px;
     }
     .hero-side-left .hbc-5{
-      width:clamp(86px,23vw,118px);
-      --r:6deg;z-index:1;margin-left:-14px;
+      width:clamp(120px,15vw,180px);
+      --r:6deg;z-index:1;margin-left:-22px;
     }
-    /* center card bigger and in front */
     .hero-side-left .hbc-3{
-      width:clamp(132px,38vw,176px);
+      width:clamp(170px,22vw,260px);
       --r:-1deg;z-index:3;
-      box-shadow:0 36px 60px -22px rgba(25,24,20,0.55);
+      box-shadow:0 22px 32px -18px rgba(25,24,20,0.45);
     }
 
-    .hero-center-content{align-self:center}
+    /* shrink hero h1 so the whole hero fits in viewport on tablet */
+    h1.hero-title{font-size:clamp(40px,5.4vw,68px);margin:0 0 14px}
+    .hero-tagline{margin:0 0 18px}
+
+    .hero-center-content{align-self:start;padding-top:4px}
     .hero-spotlight{width:120vw;height:340px}
   }
 
-  /* hero auto-scrolling reel columns */
-  .hero-reels{
-    display:grid;grid-template-columns:1fr 1fr;gap:14px;
-    height:560px;overflow:hidden;
-    -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 10%,#000 90%,transparent 100%);
-            mask-image:linear-gradient(180deg,transparent 0,#000 10%,#000 90%,transparent 100%);
-  }
-  .hero-col{display:flex;flex-direction:column;gap:14px;will-change:transform}
-  .hero-col-up{animation:hcolUp 60s linear infinite}
-  .hero-col-down{animation:hcolDown 60s linear infinite;animation-delay:-30s}
-  .hero-reels:hover .hero-col{animation-play-state:paused}
-  @keyframes hcolUp{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,-50%,0)}}
-  @keyframes hcolDown{from{transform:translate3d(0,-50%,0)}to{transform:translate3d(0,0,0)}}
-  @media (prefers-reduced-motion: reduce){
-    .hero-col{animation:none}
-    .hero-reels{height:auto;mask:none;-webkit-mask:none}
-  }
-  .hreel{
-    position:relative;flex-shrink:0;
-    aspect-ratio:9/16;border-radius:10px;overflow:hidden;
-    background:radial-gradient(at 28% 22%, var(--g1,#efd9b4), var(--g2,#9b4819) 50%, var(--g3,#1a3326) 110%);
-    box-shadow:0 14px 30px -16px rgba(155,72,25,0.5);
-  }
-  .hreel::after{
-    content:"";position:absolute;inset:0;
-    background:
-      radial-gradient(circle at 50% 50%, rgba(244,241,232,0.92) 0 19px, transparent 20px),
-      linear-gradient(180deg,rgba(25,25,25,0) 55%,rgba(25,24,20,0.72));
-    pointer-events:none;
-    z-index:1;
-  }
-  .hreel::before{
-    /* play triangle */
-    content:"";position:absolute;top:50%;left:50%;transform:translate(-44%,-50%);
-    width:0;height:0;border-left:9px solid var(--text-1);
-    border-top:6px solid transparent;border-bottom:6px solid transparent;
-    z-index:2;
-  }
-  .hreel .hreel-tag{
-    position:absolute;left:10px;right:10px;bottom:22px;z-index:3;
-    color:var(--cream);font-family:var(--serif);font-style:italic;font-weight:400;
-    font-size:14px;line-height:1.1;letter-spacing:-0.005em;
-  }
-  .hreel .hreel-cat{
-    position:absolute;left:10px;bottom:8px;z-index:3;
-    color:#d8c4a3;font-family:var(--mono);font-size:8px;letter-spacing:0.22em;text-transform:uppercase;font-weight:500;
+  /* mobile: tighter card sizing */
+  @media (max-width:640px){
+    .hero-side-left .hbc-1{
+      width:clamp(86px,23vw,118px);
+      margin-right:-14px;
+    }
+    .hero-side-left .hbc-5{
+      width:clamp(86px,23vw,118px);
+      margin-left:-14px;
+    }
+    .hero-side-left .hbc-3{
+      width:clamp(132px,38vw,176px);
+    }
+    h1.hero-title{font-size:clamp(38px,9vw,56px)}
   }
 
-  /* hero bottom strip — socials trio + meta */
+  /* hero bottom strip - socials trio + meta */
   .hero-bottom{
     display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;
     border-top:1px solid var(--hair-strong);
@@ -482,7 +469,7 @@
   .hb-v .h{color:var(--copper);font-style:italic}
 
   /* ======================================================================
-     SECTION 2 — few words about me
+     SECTION 2 - few words about me
      ====================================================================== */
   .about{
     padding:var(--sec-y) var(--pad-x);
@@ -494,18 +481,13 @@
   .about-portrait{
     aspect-ratio:4/5;border-radius:6px;
     background:radial-gradient(at 28% 22%, #f0d8b0, #9b4819 50%, #1a3326 105%);
-    box-shadow:0 50px 80px -45px rgba(155,72,25,0.4);
+    box-shadow:0 24px 36px -28px rgba(155,72,25,0.4);
     position:relative;overflow:hidden;
-  }
-  .about-portrait::after{
-    content:"";position:absolute;inset:0;
-    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.4  0 0 0 0 0.25  0 0 0 0.2 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    mix-blend-mode:overlay;opacity:0.55;
   }
   .about-portrait .cap{
     position:absolute;left:18px;bottom:18px;color:var(--cream);
     font-family:var(--mono);font-size:9px;letter-spacing:0.28em;text-transform:uppercase;
-    background:rgba(25,25,25,0.42);padding:6px 10px;backdrop-filter:blur(6px);border-radius:99px;
+    background:rgba(25,25,25,0.42);padding:6px 10px;border-radius:99px;
   }
   .about-text h2{margin-bottom:22px}
   .about-prose{
@@ -527,7 +509,7 @@
   .about-meta .v b{font-style:normal;font-weight:500;font-family:var(--sans);font-size:15px}
 
   /* ======================================================================
-     SECTION 3+4 — CLIENTS / MY WORK by category
+     SECTION 3+4 - CLIENTS / MY WORK by category
      ====================================================================== */
   .clients{padding:var(--sec-y) var(--pad-x) calc(var(--sec-y) * 0.5)}
   .clients-head{
@@ -566,7 +548,7 @@
     transition:background .2s ease, color .2s ease;
   }
   .chip.is-active{background:var(--ink);color:var(--cream);border-color:var(--ink)}
-  .chip.is-active .chip-c{background:var(--copper);color:var(--ink)}
+  .chip.is-active .chip-c{background:var(--rust);color:var(--cream)}
 
   .filter-meta{
     margin-left:auto;
@@ -587,8 +569,7 @@
   .reel{
     display:grid;grid-template-rows:auto auto auto;gap:8px;
     color:var(--ink);
-    transition:opacity .35s ease, transform .35s ease, filter .35s ease;
-    will-change:opacity,transform;
+    transition:opacity .25s ease, transform .25s ease;
   }
   .reel.is-hidden{opacity:0;transform:scale(0.96);pointer-events:none;position:absolute;visibility:hidden;height:0;margin:0;padding:0;overflow:hidden}
 
@@ -596,22 +577,16 @@
     aspect-ratio:9/16;
     border-radius:8px;
     background:radial-gradient(at 28% 22%, var(--g1,#e0d4b0), var(--g2,#9b4819) 50%, var(--g3,#1a3326) 110%);
-    box-shadow:0 30px 60px -32px rgba(155,72,25,0.42),
-               inset 0 0 60px rgba(255,250,240,0.1);
+    box-shadow:0 14px 24px -16px rgba(155,72,25,0.45);
     position:relative;overflow:hidden;
-    transition:transform .35s ease, box-shadow .35s ease;
-  }
-  .reel-video::after{
-    content:"";position:absolute;inset:0;
-    background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.4  0 0 0 0 0.25  0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    mix-blend-mode:overlay;opacity:0.45;pointer-events:none;
+    transition:transform .25s ease;
   }
   .reel-video::before{
     content:"";position:absolute;inset:0;
     background:linear-gradient(180deg,rgba(25,25,25,0) 50%,rgba(25,25,25,0.55));
     pointer-events:none;
   }
-  .reel:hover .reel-video{transform:translateY(-4px);box-shadow:0 40px 80px -28px rgba(155,72,25,0.55)}
+  .reel:hover .reel-video{transform:translateY(-3px)}
   .reel:hover .play{transform:translate(-50%,-50%) scale(1.06);background:var(--cream);color:var(--ink)}
 
   .play{
@@ -619,7 +594,7 @@
     width:44px;height:44px;border-radius:50%;
     background:rgba(244,241,232,0.92);color:var(--ink);
     display:grid;place-items:center;
-    backdrop-filter:blur(6px);
+;
     box-shadow:0 14px 24px -10px rgba(0,0,0,0.4);
     transition:transform .25s ease, background .25s ease;
     z-index:2;
@@ -635,13 +610,13 @@
     position:absolute;bottom:12px;right:12px;z-index:2;
     font-family:var(--mono);font-size:10px;letter-spacing:0.08em;
     color:var(--cream);background:rgba(25,25,25,0.55);
-    padding:4px 8px;border-radius:99px;backdrop-filter:blur(6px);
+    padding:4px 8px;border-radius:99px;
   }
   .cat-pill{
     position:absolute;top:12px;left:12px;z-index:2;
     font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
     color:#d8c4a3;background:rgba(25,25,25,0.55);
-    padding:5px 10px;border-radius:99px;backdrop-filter:blur(6px);
+    padding:5px 10px;border-radius:99px;
     border:1px solid rgba(155,72,25,0.45);
   }
 
@@ -682,7 +657,7 @@
   .btn-more.is-expanded .arr{transform:rotate(180deg)}
 
   /* ======================================================================
-     SECTION 5 — feedback
+     SECTION 5 - feedback
      ====================================================================== */
   .feedback{
     padding:var(--sec-y) var(--pad-x);
@@ -740,7 +715,7 @@
   .feedback-attribution b{color:var(--rust);font-weight:500}
 
   /* ======================================================================
-     SECTION 6 — final CTA / contact
+     SECTION 6 - final CTA / contact
      ====================================================================== */
   .cta{
     padding:calc(var(--sec-y) * 1.4) var(--pad-x) var(--sec-y);
@@ -753,13 +728,12 @@
     width:min(900px,86vw);height:min(560px,52vh);
     transform:translate(-50%,-50%);
     background:radial-gradient(ellipse at 50% 50%, rgba(110,47,14,0.55) 0, rgba(110,47,14,0.20) 38%, transparent 72%);
-    filter:blur(3px);
     pointer-events:none;z-index:0;
   }
 
   .cta-inner{position:relative;z-index:1;max-width:680px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
 
-  /* eyebrow on orange — cream + warm-gold rule */
+  /* eyebrow on orange - cream + warm-gold rule */
   .cta-eyebrow{
     display:inline-flex;align-items:center;gap:14px;
     font-family:var(--mono);font-size:11px;letter-spacing:0.32em;text-transform:uppercase;
@@ -767,7 +741,7 @@
   }
   .cta-eyebrow .rule{display:block;width:36px;height:1px;background:currentColor;opacity:.7}
 
-  /* display headline — large italic on orange, cream body + sand accent */
+  /* display headline - large serif on orange, cream body + sand accent */
   .cta h2{
     font-family:var(--serif);font-weight:500;font-size:clamp(34px,4.4vw,60px);
     line-height:1.1;letter-spacing:-0.022em;margin:0 0 36px;
@@ -775,9 +749,16 @@
     max-width:18ch;text-wrap:balance;
     color:var(--cream);
   }
-  .cta h2 em{font-style:italic;color:var(--terra-1);font-weight:600}
+  .cta h2 em{font-style:normal;color:var(--terra-1);font-weight:600}
+  .cta h2{margin:0 0 22px}
+  .cta-sub{
+    font-family:var(--sans);font-weight:400;
+    font-size:clamp(15px,1.25vw,17.5px);line-height:1.55;
+    color:rgba(244,241,232,0.82);letter-spacing:0;
+    max-width:48ch;margin:0 auto 36px;text-wrap:pretty;
+  }
 
-  /* primary CTA — cream button on orange so it pops */
+  /* primary CTA - cream button on orange so it pops */
   .cta .cta-btn{
     padding:18px 36px;font-size:13.5px;letter-spacing:0.06em;
     margin-bottom:32px;
@@ -785,7 +766,7 @@
   }
   .cta .cta-btn:hover{background:var(--terra-1);color:var(--terra-4);border-color:var(--terra-1);transform:translateY(-2px)}
 
-  /* email — secondary, large serif italic with cream underline */
+  /* email - secondary, large serif italic with cream underline */
   .cta-email{
     display:inline-block;
     font-family:var(--serif);font-style:italic;font-weight:400;
@@ -797,7 +778,7 @@
   }
   .cta-email:hover,.cta-email:focus-visible{color:var(--terra-1);border-color:var(--terra-1)}
 
-  /* social row — tertiary, light cream-tinted */
+  /* social row - tertiary, light cream-tinted */
   .cta-social{
     display:inline-flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;
     font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
@@ -811,7 +792,7 @@
   .cta-social .sep{color:var(--terra-1);opacity:.5}
 
   /* ======================================================================
-     SECTION 7 — social media row
+     SECTION 7 - social media row
      ====================================================================== */
   .social{
     padding:var(--sec-y) var(--pad-x);background:var(--cream-2);
@@ -848,12 +829,12 @@
   .social-card .icon{
     position:absolute;top:16px;right:16px;width:30px;height:30px;
     border-radius:50%;background:rgba(244,241,232,0.16);display:grid;place-items:center;
-    color:var(--cream);z-index:2;backdrop-filter:blur(6px);
+    color:var(--cream);z-index:2;
   }
   .social-card svg{width:18px;height:18px}
 
   /* ======================================================================
-     SECTION 8 — UGC starterpack
+     SECTION 8 - UGC starterpack
      ====================================================================== */
   .starter{
     padding:var(--sec-y) var(--pad-x);
@@ -869,20 +850,40 @@
   .starter p{font-family:var(--sans);font-weight:400;font-size:15px;line-height:1.6;color:var(--ink-soft);max-width:54ch;margin:0 0 24px}
   .starter p b{font-weight:600;color:var(--ink)}
 
+  .ws-facts{
+    list-style:none;margin:0 0 28px;padding:0;
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    border-top:1px solid var(--hair);
+  }
+  .ws-facts li{
+    display:flex;flex-direction:column;gap:4px;
+    padding:14px 18px 14px 0;
+    border-bottom:1px solid var(--hair);
+  }
+  .ws-facts li:nth-child(2n){padding-left:18px;border-left:1px solid var(--hair)}
+  .ws-k{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mute)}
+  .ws-v{font-family:var(--sans);font-size:14px;line-height:1.45;color:var(--ink);font-weight:500}
+
+  .ws-ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+
+  @media (max-width:640px){
+    .ws-facts{grid-template-columns:1fr}
+    .ws-facts li:nth-child(2n){padding-left:0;border-left:0}
+  }
+
   .starter-card{
     aspect-ratio:1.25/1;border-radius:8px;
     background:
       radial-gradient(circle at 30% 20%, rgba(244,241,232,0.18), transparent 60%),
       linear-gradient(160deg,#9b4819,#284b3a 70%, #1a3326);
     position:relative;overflow:hidden;
-    box-shadow:0 50px 90px -50px rgba(155,72,25,0.5);
+    box-shadow:0 24px 40px -28px rgba(155,72,25,0.45);
   }
-  .starter-card::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.6  0 0 0 0 0.5  0 0 0 0 0.3  0 0 0 0.2 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");mix-blend-mode:overlay;opacity:0.55}
 
   .starter-card .badge{
     position:absolute;top:20px;left:20px;
     font-family:var(--mono);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--cream);
-    border:1px solid rgba(244,241,232,0.5);padding:6px 12px;border-radius:99px;backdrop-filter:blur(6px);background:rgba(255,255,255,0.06);
+    border:1px solid rgba(244,241,232,0.5);padding:6px 12px;border-radius:99px;background:rgba(255,255,255,0.06);
   }
   .starter-card .name{
     position:absolute;left:24px;bottom:80px;color:var(--cream);
@@ -908,7 +909,7 @@
   }
   .ftrow{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px}
   .ft-logo{font-family:var(--serif);font-style:italic;font-weight:400;font-size:26px;letter-spacing:-0.02em;line-height:1}
-  .ft-logo small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;font-style:normal;font-weight:500;color:var(--copper);margin-top:10px}
+  .ft-logo small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;font-style:normal;font-weight:500;color:var(--terra-1);margin-top:10px}
   .ftrow .ft-blurb{margin-top:12px;color:rgba(244,241,232,0.7);font-size:13px;line-height:1.5;max-width:38ch}
   .ftrow h4{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--rust);margin:0 0 12px}
   .ftrow ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:13px}
@@ -947,6 +948,15 @@
     .ftrow{grid-template-columns:1fr 1fr;gap:32px}
   }
 
+  /* Pause all CSS animations inside a section when it scrolls offscreen */
+  .anim-paused, .anim-paused *{animation-play-state:paused !important}
+
+  /* Skip rendering offscreen heavy sections - massive paint savings during scroll */
+  .clients, .feedback, .cta, .social, .starter, footer{
+    content-visibility:auto;
+    contain-intrinsic-size:auto 900px;
+  }
+
   @media (prefers-reduced-motion: reduce){
     *,*::before,*::after{animation:none !important;transition:none !important}
     html{scroll-behavior:auto}
@@ -957,7 +967,7 @@
 
 <!-- ======================== NAV ======================== -->
 <nav class="nav" aria-label="Primary">
-  <div class="logo">Anet<b>· Trousilová</b></div>
+  <div class="logo">Aneta<b>· Trousilová</b></div>
   <div class="menu">
     <a href="#about"><span data-i18n="nav.about">About</span></a>
     <a href="#clients"><span data-i18n="nav.clients">Clients</span></a>
@@ -987,35 +997,35 @@
 
     <div class="hero-side hero-side-left" aria-hidden="true">
       <div class="hbcard hbc-1" style="--g1:#efd9b4;--g2:#9b4819;--g3:#1a3326">
-        <span class="cover" aria-hidden="true"></span><span class="cat">Beauty</span><span class="label">Bübchen</span>
+        <span class="cover" aria-hidden="true"></span><span class="cat" data-i18n="cat.beauty">Beauty</span><span class="label">Bübchen</span>
       </div>
       <div class="hbcard hbc-3" style="--g1:#e8d5ad;--g2:#925220;--g3:#1a3326">
-        <span class="cover" aria-hidden="true"></span><span class="cat">Beauty</span><span class="label">Garnier</span>
+        <span class="cover" aria-hidden="true"></span><span class="cat" data-i18n="cat.beauty">Beauty</span><span class="label">Garnier</span>
       </div>
       <div class="hbcard hbc-5" style="--g1:#e6cca5;--g2:#a86c33;--g3:#1a3326">
-        <span class="cover" aria-hidden="true"></span><span class="cat">Fashion</span><span class="label">Snuggs</span>
+        <span class="cover" aria-hidden="true"></span><span class="cat" data-i18n="cat.fashion">Fashion</span><span class="label">Snuggs</span>
       </div>
     </div>
 
     <div class="hero-center-content">
       <div class="eyebrow hero-eye" data-i18n="hero.eyebrow">UGC creator · 35+ brands · CZ + EN</div>
-      <h1 class="hero-title" data-i18n="hero.title">UGC that feels like a <em>recommendation</em> — and <span class="name">sells.</span></h1>
-      <p class="hero-tagline" data-i18n="hero.tagline">Costa, Garnier, Mixa, Wolt, mBank — and thirty more. Authentic content that <em>actually delivers.</em></p>
+      <h1 class="hero-title" data-i18n="hero.title">UGC that feels like a <em>friend's recommendation.</em></h1>
+      <p class="hero-tagline" data-i18n="hero.tagline">Costa, Garnier, Mixa, Wolt, mBank and thirty more. Reels and videos where your product gets to <em>shine naturally.</em></p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="mailto:anetatrousilovaugc@gmail.com" data-i18n="hero.cta-primary">Send me a brief <span class="arr">→</span></a>
-        <a class="btn btn-ghost" href="#clients"><span data-i18n="hero.cta-secondary">See my work</span></a>
+        <a class="btn btn-ghost" href="#clients"><span data-i18n="hero.cta-secondary">Browse the reels</span></a>
       </div>
     </div>
 
     <div class="hero-side hero-side-right" aria-hidden="true">
       <div class="hbcard hbc-2" style="--g1:#3a2a1a;--g2:#9b4819;--g3:#0e0703">
-        <span class="cover" aria-hidden="true"></span><span class="cat">Food</span><span class="label">Costa Coffee</span>
+        <span class="cover" aria-hidden="true"></span><span class="cat" data-i18n="cat.food">Food</span><span class="label">Costa Coffee</span>
       </div>
       <div class="hbcard hbc-4" style="--g1:#f0d8b0;--g2:#bd8f53;--g3:#284b3a">
-        <span class="cover" aria-hidden="true"></span><span class="cat">Food</span><span class="label">Wolt</span>
+        <span class="cover" aria-hidden="true"></span><span class="cat" data-i18n="cat.food">Food</span><span class="label">Wolt</span>
       </div>
       <div class="hbcard hbc-6" style="--g1:#f0d8b0;--g2:#bd8f53;--g3:#3a1d0a">
-        <span class="cover" aria-hidden="true"></span><span class="cat">App</span><span class="label">mBank</span>
+        <span class="cover" aria-hidden="true"></span><span class="cat" data-i18n="cat.apps">App</span><span class="label">mBank</span>
       </div>
     </div>
 
@@ -1023,19 +1033,19 @@
 
   <div class="hero-bottom">
     <div>
-      <div class="hb-k">Categories</div>
-      <div class="hb-v">Beauty · Food · Fashion</div>
+      <div class="hb-k" data-i18n="hb.k.categories">Categories</div>
+      <div class="hb-v" data-i18n="hb.v.cats-1">Beauty · Food · Fashion</div>
     </div>
     <div>
-      <div class="hb-k">Also</div>
-      <div class="hb-v">Events &amp; Stores · Apps</div>
+      <div class="hb-k" data-i18n="hb.k.also">Also</div>
+      <div class="hb-v" data-i18n="hb.v.cats-2">Events &amp; Stores · Apps</div>
     </div>
     <div>
-      <div class="hb-k">Brands</div>
-      <div class="hb-v"><b>35+</b> <span class="h">/ see below</span></div>
+      <div class="hb-k" data-i18n="hb.k.brands">Brands</div>
+      <div class="hb-v" data-i18n="hb.v.brands"><b>35+</b> <span class="h">/ see below</span></div>
     </div>
     <div>
-      <div class="hb-k">Find me</div>
+      <div class="hb-k" data-i18n="hb.k.findme">Find me</div>
       <div class="hb-v">
         <a href="https://www.instagram.com/trousilova_aneta/" aria-label="Instagram">IG</a>
         ·
@@ -1051,7 +1061,7 @@
 <section class="about" id="about">
   <div class="about-grid">
     <div class="about-portrait" data-reveal>
-      <div class="cap">// portrait · placeholder</div>
+      <div class="cap" data-i18n="about.portrait-cap">// portrait · placeholder</div>
     </div>
 
     <div class="about-text" data-reveal style="--rd:.08s">
@@ -1059,21 +1069,21 @@
       <h2 class="section-h" data-i18n="about.h2">I can't walk past a product <em>without</em> <span class="copper">filming it.</span></h2>
 
       <div class="about-prose">
-        <p data-i18n="about.bio-1">My name is Anet and I have one problem: I can\'t walk past a product without immediately wanting to film it. I make <b>UGC content</b> that feels like a recommendation from a friend — but still delivers the best of what your product has to offer.</p>
+        <p data-i18n="about.bio-1">My name is Aneta and I have one problem: I can\'t walk past a product without immediately wanting to film it. I make <b>UGC content</b> that feels like a recommendation from a friend, while still showing the best of what your product has to offer.</p>
         <p data-i18n="about.bio-2"><em>Lifestyle, food, travel, sport, beauty, home decor, mall stores, apps, online products, events…</em> basically anything that can be shown to the world.</p>
-        <p data-i18n="about.bio-3">The list of brands I\'ve worked with is long enough to <b>guarantee my quality</b> and your satisfaction.</p>
+        <p data-i18n="about.bio-3">I\'ve worked with <b>35+ brands</b> across beauty, food, fashion, events and apps. The list keeps growing, which is the kind of proof I find most reassuring.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ======================== 3+4. CLIENTS / MY WORK — filterable reel grid ======================== -->
+<!-- ======================== 3+4. CLIENTS / MY WORK - filterable reel grid ======================== -->
 <section class="clients" id="clients">
   <div class="clients-head" data-reveal>
     <div>
       <div class="num" data-i18n="clients.num">Clients · <b>My Work</b></div>
-      <h2 class="section-h" style="margin-top:18px" data-i18n="clients.h2"><em>35 brands</em>, five categories — filter by what you need.</h2>
+      <h2 class="section-h" style="margin-top:18px" data-i18n="clients.h2"><em>35 brands</em>, five categories. Filter by what you need.</h2>
     </div>
     <p class="lead" data-i18n="clients.lead">Every reel below is a real, completed collaboration. Filter by category, tap to play.</p>
   </div>
@@ -1083,19 +1093,19 @@
       <span class="chip-l" data-i18n="filter.all">All</span><span class="chip-c" data-count-all>35</span>
     </button>
     <button class="chip" role="tab" aria-selected="false" data-filter="beauty">
-      <span class="chip-l">Beauty</span><span class="chip-c" data-count-beauty>7</span>
+      <span class="chip-l" data-i18n="cat.beauty">Beauty</span><span class="chip-c" data-count-beauty>7</span>
     </button>
     <button class="chip" role="tab" aria-selected="false" data-filter="food">
-      <span class="chip-l">Food</span><span class="chip-c" data-count-food>8</span>
+      <span class="chip-l" data-i18n="cat.food">Food</span><span class="chip-c" data-count-food>8</span>
     </button>
     <button class="chip" role="tab" aria-selected="false" data-filter="fashion">
-      <span class="chip-l">Fashion</span><span class="chip-c" data-count-fashion>6</span>
+      <span class="chip-l" data-i18n="cat.fashion">Fashion</span><span class="chip-c" data-count-fashion>6</span>
     </button>
     <button class="chip" role="tab" aria-selected="false" data-filter="events">
-      <span class="chip-l">Events &amp; Stores</span><span class="chip-c" data-count-events>8</span>
+      <span class="chip-l" data-i18n="cat.events">Events &amp; Stores</span><span class="chip-c" data-count-events>8</span>
     </button>
     <button class="chip" role="tab" aria-selected="false" data-filter="apps">
-      <span class="chip-l">Apps</span><span class="chip-c" data-count-apps>6</span>
+      <span class="chip-l" data-i18n="cat.apps">Apps</span><span class="chip-c" data-count-apps>6</span>
     </button>
     <span class="filter-meta" aria-live="polite"><b data-shown>35</b> <span data-i18n="filter.shown-suffix">reels shown</span></span>
   </div>
@@ -1104,192 +1114,192 @@
 
     <!-- BEAUTY -->
     <a class="reel" href="#" data-cat="beauty" style="--g1:#efd9b4;--g2:#9b4819;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:24</span><span class="cat-pill">Beauty</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:24</span><span class="cat-pill" data-i18n="cat.beauty">Beauty</span></div>
       <div class="reel-meta"><span class="reel-brand">Garnier</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="beauty" style="--g1:#f3e3c0;--g2:#9b4819;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:18</span><span class="cat-pill">Beauty</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:18</span><span class="cat-pill" data-i18n="cat.beauty">Beauty</span></div>
       <div class="reel-meta"><span class="reel-brand">Mixa</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="beauty" style="--g1:#e8d5ad;--g2:#a36b3a;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:32</span><span class="cat-pill">Beauty</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:32</span><span class="cat-pill" data-i18n="cat.beauty">Beauty</span></div>
       <div class="reel-meta"><span class="reel-brand">Bübchen</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="beauty" style="--g1:#d8c4a3;--g2:#9b4819;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">1:12</span><span class="cat-pill">Beauty</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">1:12</span><span class="cat-pill" data-i18n="cat.beauty">Beauty</span></div>
       <div class="reel-meta"><span class="reel-brand">Havlíkova Apotéka</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="beauty" style="--g1:#f0d8b0;--g2:#9b4819;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:21</span><span class="cat-pill">Beauty</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:21</span><span class="cat-pill" data-i18n="cat.beauty">Beauty</span></div>
       <div class="reel-meta"><span class="reel-brand">Venira</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="beauty" style="--g1:#e6cca5;--g2:#925220;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:28</span><span class="cat-pill">Beauty</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:28</span><span class="cat-pill" data-i18n="cat.beauty">Beauty</span></div>
       <div class="reel-meta"><span class="reel-brand">Regenix</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="beauty" style="--g1:#e8c89a;--g2:#a86c33;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:19</span><span class="cat-pill">Beauty</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:19</span><span class="cat-pill" data-i18n="cat.beauty">Beauty</span></div>
       <div class="reel-meta"><span class="reel-brand">Vera</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
 
     <!-- FOOD -->
     <a class="reel" href="#" data-cat="food" style="--g1:#1a3326;--g2:#9b4819;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:22</span><span class="cat-pill">Food</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:22</span><span class="cat-pill" data-i18n="cat.food">Food</span></div>
       <div class="reel-meta"><span class="reel-brand">Costa Coffee</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="food" style="--g1:#f0e0c0;--g2:#9b4819;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:30</span><span class="cat-pill">Food</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:30</span><span class="cat-pill" data-i18n="cat.food">Food</span></div>
       <div class="reel-meta"><span class="reel-brand">Wolt</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="food" style="--g1:#f3d9b0;--g2:#9b4819;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:17</span><span class="cat-pill">Food</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:17</span><span class="cat-pill" data-i18n="cat.food">Food</span></div>
       <div class="reel-meta"><span class="reel-brand">UGO</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="food" style="--g1:#d8c4a3;--g2:#9b4819;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:25</span><span class="cat-pill">Food</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:25</span><span class="cat-pill" data-i18n="cat.food">Food</span></div>
       <div class="reel-meta"><span class="reel-brand">Šufan</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="food" style="--g1:#e6cca5;--g2:#a86c33;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:31</span><span class="cat-pill">Food</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:31</span><span class="cat-pill" data-i18n="cat.food">Food</span></div>
       <div class="reel-meta"><span class="reel-brand">Powerlogy</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="food" style="--g1:#f0d8b0;--g2:#9b4819;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:14</span><span class="cat-pill">Food</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:14</span><span class="cat-pill" data-i18n="cat.food">Food</span></div>
       <div class="reel-meta"><span class="reel-brand">Franui</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="food" style="--g1:#e8d5ad;--g2:#925220;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:20</span><span class="cat-pill">Food</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:20</span><span class="cat-pill" data-i18n="cat.food">Food</span></div>
       <div class="reel-meta"><span class="reel-brand">Lepší Kuchyň</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="food" style="--g1:#f3e3c0;--g2:#9b4819;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:23</span><span class="cat-pill">Food</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:23</span><span class="cat-pill" data-i18n="cat.food">Food</span></div>
       <div class="reel-meta"><span class="reel-brand">Citroněk</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
 
     <!-- FASHION -->
     <a class="reel" href="#" data-cat="fashion" style="--g1:#e6cca5;--g2:#9b4819;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:26</span><span class="cat-pill">Fashion</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:26</span><span class="cat-pill" data-i18n="cat.fashion">Fashion</span></div>
       <div class="reel-meta"><span class="reel-brand">Sellpy</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="fashion" style="--g1:#d8c4a3;--g2:#a36b3a;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:18</span><span class="cat-pill">Fashion</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:18</span><span class="cat-pill" data-i18n="cat.fashion">Fashion</span></div>
       <div class="reel-meta"><span class="reel-brand">Snuggs</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="fashion" style="--g1:#f0d8b0;--g2:#9b4819;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:22</span><span class="cat-pill">Fashion</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:22</span><span class="cat-pill" data-i18n="cat.fashion">Fashion</span></div>
       <div class="reel-meta"><span class="reel-brand">Skinners</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="fashion" style="--g1:#e8d5ad;--g2:#925220;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:24</span><span class="cat-pill">Fashion</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:24</span><span class="cat-pill" data-i18n="cat.fashion">Fashion</span></div>
       <div class="reel-meta"><span class="reel-brand">Textilomanie</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="fashion" style="--g1:#f3e3c0;--g2:#9b4819;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:19</span><span class="cat-pill">Fashion</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:19</span><span class="cat-pill" data-i18n="cat.fashion">Fashion</span></div>
       <div class="reel-meta"><span class="reel-brand">Triby</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="fashion" style="--g1:#d8b88a;--g2:#a36b3a;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:21</span><span class="cat-pill">Fashion</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:21</span><span class="cat-pill" data-i18n="cat.fashion">Fashion</span></div>
       <div class="reel-meta"><span class="reel-brand">Ruf Ruf</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
 
     <!-- EVENTS & STORES -->
     <a class="reel" href="#" data-cat="events" style="--g1:#f0d8b0;--g2:#9b4819;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:34</span><span class="cat-pill">Events</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:34</span><span class="cat-pill" data-i18n="cat.events-short">Events</span></div>
       <div class="reel-meta"><span class="reel-brand">OC Nový Smíchov</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="events" style="--g1:#e6cca5;--g2:#9b4819;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:28</span><span class="cat-pill">Events</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:28</span><span class="cat-pill" data-i18n="cat.events-short">Events</span></div>
       <div class="reel-meta"><span class="reel-brand">Máj</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="events" style="--g1:#d8c4a3;--g2:#a36b3a;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:42</span><span class="cat-pill">Events</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:42</span><span class="cat-pill" data-i18n="cat.events-short">Events</span></div>
       <div class="reel-meta"><span class="reel-brand">Orea Hotels</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="events" style="--g1:#e8d5ad;--g2:#925220;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:25</span><span class="cat-pill">Events</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:25</span><span class="cat-pill" data-i18n="cat.events-short">Events</span></div>
       <div class="reel-meta"><span class="reel-brand">Baumax</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="events" style="--g1:#f3e3c0;--g2:#9b4819;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:18</span><span class="cat-pill">Events</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:18</span><span class="cat-pill" data-i18n="cat.events-short">Events</span></div>
       <div class="reel-meta"><span class="reel-brand">Bob Sanil</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="events" style="--g1:#e6cca5;--g2:#9b4819;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:20</span><span class="cat-pill">Events</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:20</span><span class="cat-pill" data-i18n="cat.events-short">Events</span></div>
       <div class="reel-meta"><span class="reel-brand">Tiskařík</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="events" style="--g1:#d8c4a3;--g2:#a86c33;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:16</span><span class="cat-pill">Events</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:16</span><span class="cat-pill" data-i18n="cat.events-short">Events</span></div>
       <div class="reel-meta"><span class="reel-brand">Planto Besto</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="events" style="--g1:#f0d8b0;--g2:#9b4819;--g3:#284b3a">
-      <div class="reel-video"><span class="play"></span><span class="duration">0:22</span><span class="cat-pill">Events</span></div>
+      <div class="reel-video"><span class="play"></span><span class="duration">0:22</span><span class="cat-pill" data-i18n="cat.events-short">Events</span></div>
       <div class="reel-meta"><span class="reel-brand">Gingles</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
 
     <!-- APPS -->
     <a class="reel" href="#" data-cat="apps" style="--g1:#e8d5ad;--g2:#925220;--g3:#284b3a">
       <div class="reel-video"><span class="play"></span><span class="duration">0:30</span><span class="cat-pill">App</span></div>
       <div class="reel-meta"><span class="reel-brand">mBank</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="apps" style="--g1:#f3e3c0;--g2:#9b4819;--g3:#284b3a">
       <div class="reel-video"><span class="play"></span><span class="duration">0:18</span><span class="cat-pill">App</span></div>
       <div class="reel-meta"><span class="reel-brand">Rekola</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="apps" style="--g1:#e6cca5;--g2:#9b4819;--g3:#284b3a">
       <div class="reel-video"><span class="play"></span><span class="duration">0:20</span><span class="cat-pill">App</span></div>
       <div class="reel-meta"><span class="reel-brand">Next Bike</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="apps" style="--g1:#d8c4a3;--g2:#a36b3a;--g3:#284b3a">
       <div class="reel-video"><span class="play"></span><span class="duration">0:24</span><span class="cat-pill">App</span></div>
       <div class="reel-meta"><span class="reel-brand">Levels</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="apps" style="--g1:#e8d5ad;--g2:#925220;--g3:#284b3a">
       <div class="reel-video"><span class="play"></span><span class="duration">0:16</span><span class="cat-pill">App</span></div>
       <div class="reel-meta"><span class="reel-brand">Miles</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
     <a class="reel" href="#" data-cat="apps" style="--g1:#f0d8b0;--g2:#9b4819;--g3:#284b3a">
       <div class="reel-video"><span class="play"></span><span class="duration">0:19</span><span class="cat-pill">App</span></div>
       <div class="reel-meta"><span class="reel-brand">Guláš</span></div>
-      <div class="reel-desc">Reel — placeholder</div>
+      <div class="reel-desc" data-i18n="reel.placeholder">Reel - placeholder</div>
     </a>
 
   </div>
 
-  <p class="reels-empty" hidden>No reels in this category yet.</p>
+  <p class="reels-empty" hidden data-i18n="reels.empty">No reels in this category yet.</p>
 
   <div class="reels-more" data-reveal style="--rd:.18s">
     <button class="btn-more" data-show-more type="button" hidden>
@@ -1299,14 +1309,14 @@
   </div>
 </section>
 
-<!-- ======================== 5. FEEDBACK — infinite scroll of testimonial screenshots ======================== -->
+<!-- ======================== 5. FEEDBACK - infinite scroll of testimonial screenshots ======================== -->
 <section class="feedback" id="feedback">
   <div class="feedback-head" data-reveal>
     <div>
       <div class="eyebrow" style="color:var(--rust)" data-i18n="feedback.eyebrow">Feedback</div>
-      <h2 class="section-h" style="margin-top:18px" data-i18n="feedback.h2">In their <em>own</em> words.</h2>
+      <h2 class="section-h" style="margin-top:18px" data-i18n="feedback.h2">A few messages that <em>made my day.</em></h2>
     </div>
-    <div class="num" data-i18n="feedback.num">— Selected screenshots —</div>
+    <div class="num" data-i18n="feedback.num">Selected references</div>
   </div>
 
   <div class="feedback-marquee" data-reveal style="--rd:.1s" aria-roledescription="testimonial screenshots scrolling">
@@ -1541,6 +1551,8 @@
 
     <h2 data-reveal style="--rd:.08s" data-i18n="cta.h2">I look forward to our <em>future collaboration!</em></h2>
 
+    <p class="cta-sub" data-reveal style="--rd:.12s" data-i18n="cta.sub">Send me a few sentences about the product and when it should go live. I usually reply the same day or the next.</p>
+
     <a class="btn btn-primary cta-btn" data-reveal style="--rd:.16s" href="mailto:anetatrousilovaugc@gmail.com"><span data-i18n="cta.btn">Send me a brief <span class="arr">→</span></span></a>
 
     <a class="cta-email" data-reveal style="--rd:.24s" href="mailto:anetatrousilovaugc@gmail.com">anetatrousilovaugc@gmail.com</a>
@@ -1595,16 +1607,27 @@
 <!-- ======================== 8. UGC STARTERPACK ======================== -->
 <section class="starter" id="starter">
   <div data-reveal>
-    <div class="starter-mark" data-i18n="starter.mark">Building UGC community &amp; workshops</div>
+    <div class="starter-mark" data-i18n="starter.mark">Workshops &amp; community for beginning UGC creators</div>
     <h2 class="section-h" data-i18n="starter.h2">ugc <em>starterpack.</em></h2>
-    <p data-i18n="starter.p">For people who want to film. <b>Free Instagram, paid workshops.</b></p>
-    <a class="btn btn-primary" href="https://www.instagram.com/ugc.starterpack/"><span data-i18n="starter.btn">Follow on Instagram <span class="arr">→</span></span></a>
+    <p data-i18n="starter.p">Together with <b>Anna (@anna_4manova)</b> we teach beginners how to turn UGC into real income. From the first client through brief and portfolio to contracts, invoicing, and discounts on gear.</p>
+
+    <ul class="ws-facts">
+      <li><span class="ws-k" data-i18n="ws.k-place">Venue</span><span class="ws-v" data-i18n="ws.v-place">Galerie âme</span></li>
+      <li><span class="ws-k" data-i18n="ws.k-duration">Duration</span><span class="ws-v" data-i18n="ws.v-duration">7 hours in person</span></li>
+      <li><span class="ws-k" data-i18n="ws.k-price">Price</span><span class="ws-v" data-i18n="ws.v-price">from 2 499 CZK (online recording) · 5 499 CZK (in person)</span></li>
+      <li><span class="ws-k" data-i18n="ws.k-bonus">Bonus</span><span class="ws-v" data-i18n="ws.v-bonus">Bring a friend, both save 500 CZK</span></li>
+    </ul>
+
+    <div class="ws-ctas">
+      <a class="btn btn-primary" href="https://ugcworkshop.my.canva.site/ugc-workshopy-registrace" target="_blank" rel="noopener"><span data-i18n="ws.cta-primary">Workshop details <span class="arr">→</span></span></a>
+      <a class="btn btn-ghost" href="https://www.instagram.com/ugc.starterpack/"><span data-i18n="ws.cta-secondary">Follow @ugc.starterpack</span></a>
+    </div>
   </div>
 
-  <a class="starter-card" data-reveal style="--rd:.12s" href="https://www.instagram.com/ugc.starterpack/">
+  <a class="starter-card" data-reveal style="--rd:.12s" href="https://ugcworkshop.my.canva.site/ugc-workshopy-registrace" target="_blank" rel="noopener">
     <div class="badge">@ugc.starterpack</div>
-    <div class="name">starter<br/>pack.<b>Community · workshops</b></div>
-    <div class="open"><span data-i18n="starter.open">Open Instagram</span></div>
+    <div class="name">starter<br/>pack.<b data-i18n="starter.card-tag">Workshops · community</b></div>
+    <div class="open"><span data-i18n="starter.open">Open workshop info</span></div>
   </a>
 </section>
 
@@ -1612,8 +1635,8 @@
 <footer>
   <div class="ftrow">
     <div data-reveal>
-      <div class="ft-logo">Anet Trousilová<small>UGC Creator · Praha</small></div>
-      <p class="ft-blurb">UGC content that feels like a recommendation from a friend — but still delivers the best of what your product has to offer.</p>
+      <div class="ft-logo">Aneta Trousilová<small data-i18n="footer.tagline">UGC Creator</small></div>
+      <p class="ft-blurb" data-i18n="footer.blurb">UGC content that feels like a recommendation from a friend, while still showing the best of what your product has to offer.</p>
     </div>
     <div>
       <h4><span data-i18n="footer.site">Site</span></h4>
@@ -1633,8 +1656,8 @@
     <div>
       <h4><span data-i18n="footer.social">Social</span></h4>
       <ul>
-        <li><a href="https://www.instagram.com/trousilova_aneta/">Instagram · personal</a></li>
-        <li><a href="https://www.instagram.com/ugc.starterpack/">Instagram · starter pack</a></li>
+        <li><a href="https://www.instagram.com/trousilova_aneta/"><span data-i18n="footer.ig-personal">Instagram · personal</span></a></li>
+        <li><a href="https://www.instagram.com/ugc.starterpack/"><span data-i18n="footer.ig-starter">Instagram · starter pack</span></a></li>
         <li><a href="https://www.tiktok.com/@ugcaneta.trou">TikTok</a></li>
         <li><a href="https://youtube.com/@anetatrousilova22">YouTube</a></li>
       </ul>
@@ -1642,7 +1665,7 @@
   </div>
 
   <div class="ftbottom">
-    <span data-i18n="footer.copyright">© 2026 Anet Trousilová · All rights reserved</span>
+    <span data-i18n="footer.copyright">© 2026 Aneta Trousilová · All rights reserved</span>
     <span><a href="mailto:anetatrousilovaugc@gmail.com">anetatrousilovaugc@gmail.com</a></span>
   </div>
 </footer>
@@ -1660,7 +1683,7 @@
     let activeFilter = 'all';
     let expanded = false;
 
-    /* Counts per category — drives the chip badges */
+    /* Counts per category - drives the chip badges */
     const counts = {all:reels.length,beauty:0,food:0,fashion:0,events:0,apps:0};
     reels.forEach(r => { const k = r.dataset.cat; if (k && counts[k] !== undefined) counts[k]++; });
     document.querySelector('[data-count-all]').textContent = counts.all;
@@ -1726,7 +1749,7 @@
     applyState();
   })();
 
-  /* Testimonial marquee — clone the cards once for seamless loop */
+  /* Testimonial marquee - clone the cards once for seamless loop */
   (function(){
     const track = document.querySelector('[data-marquee-track]');
     if (!track) return;
@@ -1738,19 +1761,7 @@
     });
   })();
 
-  /* Hero reel columns — clone for seamless vertical scroll */
-  (function(){
-    document.querySelectorAll('[data-hero-track]').forEach(col => {
-      const reels = Array.from(col.children);
-      reels.forEach(r => {
-        const dup = r.cloneNode(true);
-        dup.setAttribute('aria-hidden','true');
-        col.appendChild(dup);
-      });
-    });
-  })();
-
-  /* Scroll-triggered reveal — adds .is-visible to [data-reveal] elements */
+  /* Scroll-triggered reveal - adds .is-visible to [data-reveal] elements */
   (function(){
     const reveals = document.querySelectorAll('[data-reveal]');
     if (!reveals.length) return;
@@ -1768,6 +1779,17 @@
     reveals.forEach(el => obs.observe(el));
   })();
 
+  /* Pause infinite animations when their section is offscreen (saves GPU during scroll) */
+  (function(){
+    if (!('IntersectionObserver' in window)) return;
+    const targets = document.querySelectorAll('.hero, .feedback-marquee');
+    if (!targets.length) return;
+    const pauseObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { e.target.classList.toggle('anim-paused', !e.isIntersecting); });
+    }, { rootMargin: '120px 0px' });
+    targets.forEach(el => pauseObs.observe(el));
+  })();
+
   /* === i18n: CZ / EN toggle ============================================ */
   (function(){
     const CS = {
@@ -1778,43 +1800,74 @@
       'nav.contact': 'Kontakt',
       'nav.book': 'Napsat',
       'hero.eyebrow': 'UGC creator · 35+ značek · CZ + EN',
-      'hero.title': 'UGC, které vypadá jako <em>doporučení od kamarádky</em> — a <span class="name">prodává.</span>',
-      'hero.tagline': 'Costa, Garnier, Mixa, Wolt, mBank — a <em>přes 30 dalších spokojených klientů.</em> Autentický obsah, který opravdu funguje.',
+      'hero.title': 'UGC, které vypadá jako <em>doporučení od kamarádky.</em>',
+      'hero.tagline': 'Costa, Garnier, Mixa, Wolt, mBank a dalších třicet značek. Reels a videa, na kterých váš produkt <em>zazáří přirozeně.</em>',
       'hero.cta-primary': 'Pošlete mi brief <span class="arr">→</span>',
-      'hero.cta-secondary': 'Vidět práci',
+      'hero.cta-secondary': 'Prohlédnout reels',
       'hero.pulse': 'UGC tvůrkyně',
       'about.eyebrow': 'Pár slov o mně',
-      'about.h2': 'Nemohu projít kolem produktu, <em>aniž</em> <span class="copper">bych ho točila.</span>',
-      'about.bio-1': 'Jmenuji se Anet a mám jeden problém: nemohu projít kolem produktu, abych ho hned nechtěla natočit. Tvořím <b>UGC obsah</b>, který působí jako doporučení od kamarádky — a přitom z vašeho produktu vytáhne to nejlepší.',
+      'about.h2': 'Nemůžu projít kolem produktu, <em>aniž</em> <span class="copper">bych ho točila.</span>',
+      'about.bio-1': 'Jmenuju se Aneta a mám jeden problém: nemůžu projít kolem produktu, abych ho hned nechtěla natočit. Tvořím <b>UGC obsah</b>, který působí jako doporučení od kamarádky a přitom z vašeho produktu vytáhne to nejlepší.',
       'about.bio-2': '<em>Lifestyle, jídlo, cestování, sport, beauty, design domácnosti, obchodní centra, aplikace, online produkty, akce…</em> v podstatě cokoli, co se dá ukázat světu.',
-      'about.bio-3': 'Seznam brandů, se kterými jsem spolupracovala, je dost dlouhý na to, aby <b>zaručil mojí kvalitu</b> a vaši spokojenost.',
+      'about.bio-3': 'Spolupracovala jsem s <b>35+ značkami</b> napříč beauty, jídlem, módou, eventy i aplikacemi. Seznam roste dál, což je pro mě ten nejhezčí důkaz, že to spolu funguje.',
       'clients.num': 'Klienti · <b>Moje práce</b>',
-      'clients.h2': '<em>35 značek</em>, pět kategorií — filtrujte podle Vašeho odvětví.',
+      'clients.h2': '<em>35 značek</em>, pět kategorií. Filtrujte podle toho, co hledáte.',
       'clients.lead': 'Každý reel níže je reálná, dokončená spolupráce. Filtrujte podle kategorie, klikněte pro přehrání.',
       'filter.all': 'Vše',
       'filter.shown-suffix': 'reels zobrazeno',
       'feedback.eyebrow': 'Ohlasy',
-      'feedback.h2': 'Jejich <em>vlastními</em> slovy.',
-      'feedback.num': '— Vybrané screenshoty —',
+      'feedback.h2': 'Pár zpráv, které mě <em>zahřály.</em>',
+      'feedback.num': 'Vybrané reference',
       'feedback.attr': 'Všechny screenshoty <b>· placeholdery ·</b> připravené nahradit reálnými DMs a emaily',
       'cta.eyebrow': 'Pojďme se domluvit',
       'cta.h2': 'Těším se na naši <em>budoucí spolupráci!</em>',
+      'cta.sub': 'Napište mi pár vět o produktu a do kdy obsah potřebujete. Obvykle se ozvu ještě tentýž den, nejpozději druhý.',
       'cta.btn': 'Pošlete mi brief <span class="arr">→</span>',
       'social.eyebrow': 'Více příkladů',
       'social.h2': 'Podívejte se na moje <em>sociální sítě</em>.',
       'social.open-profile': 'Otevřít profil',
       'social.open-channel': 'Otevřít kanál',
-      'starter.mark': 'Buduju UGC komunitu a workshopy',
+      'starter.mark': 'Workshopy a komunita pro začínající UGC tvůrkyně',
       'starter.h2': 'ugc <em>starterpack.</em>',
-      'starter.p': 'Pro lidi, co chtějí točit. <b>Zdarma na Instagramu, placené workshopy.</b>',
-      'starter.btn': 'Sledujte na Instagramu <span class="arr">→</span>',
-      'starter.open': 'Otevřít Instagram',
+      'starter.p': 'Společně s <b>Annou (@anna_4manova)</b> učíme začínající tvůrce, jak si vytvořit z UGC reálný příjem. Cesta od prvního klienta přes brief a portfolio až po smlouvu, fakturaci a slevy na techniku.',
+      'starter.card-tag': 'Workshopy · komunita',
+      'starter.open': 'Otevřít info o workshopu',
+      'ws.k-place': 'Místo',
+      'ws.v-place': 'Galerie âme',
+      'ws.k-duration': 'Délka',
+      'ws.v-duration': '7 hodin offline',
+      'ws.k-price': 'Cena',
+      'ws.v-price': 'od 2 499 Kč (online záznam) · 5 499 Kč (offline)',
+      'ws.k-bonus': 'Bonus',
+      'ws.v-bonus': 'Přijďte ve dvou, ušetříte 500 Kč každá',
+      'ws.cta-primary': 'Detaily a registrace <span class="arr">→</span>',
+      'ws.cta-secondary': 'Sledovat @ugc.starterpack',
       'footer.site': 'Stránky',
       'footer.contact': 'Kontakt',
       'footer.social': 'Sociální sítě',
-      'footer.copyright': '© 2026 Anet Trousilová · Všechna práva vyhrazena',
+      'footer.copyright': '© 2026 Aneta Trousilová · Všechna práva vyhrazena',
+      'footer.tagline': 'UGC tvůrkyně',
+      'footer.blurb': 'UGC obsah, který působí jako doporučení od kamarádky a přitom z vašeho produktu vytáhne to nejlepší.',
+      'footer.ig-personal': 'Instagram · osobní',
+      'footer.ig-starter': 'Instagram · starter pack',
       'show.more': 'Zobrazit více',
       'show.fewer': 'Zobrazit méně',
+      'cat.beauty': 'Beauty',
+      'cat.food': 'Jídlo',
+      'cat.fashion': 'Móda',
+      'cat.events': 'Akce a obchody',
+      'cat.events-short': 'Akce',
+      'cat.apps': 'Aplikace',
+      'reel.placeholder': 'Reel · ukázka',
+      'hb.k.categories': 'Kategorie',
+      'hb.v.cats-1': 'Beauty · Jídlo · Móda',
+      'hb.k.also': 'Dále',
+      'hb.v.cats-2': 'Akce a obchody · Aplikace',
+      'hb.k.brands': 'Značky',
+      'hb.v.brands': '<b>35+</b> <span class="h">/ viz níže</span>',
+      'hb.k.findme': 'Najdete mě',
+      'about.portrait-cap': '// portrét · placeholder',
+      'reels.empty': 'V této kategorii zatím žádné reels nejsou.',
     };
 
     let activeLang = 'en';
@@ -1867,20 +1920,7 @@
 </script>
 
 
-<!-- Lenis: smooth scroll for the entire site -->
-<script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
-<script>
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    const lenis = new Lenis({
-      duration: 1.15,
-      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      lerp: 0.1,
-      anchors: { offset: -64, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) }
-    });
-    (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(0);
-  }
-</script>
+<!-- Native scroll only. CSS scroll-behavior:smooth handles anchor clicks (nav links). -->
 
 </body>
 </html>
